@@ -1,4 +1,5 @@
-HOST-KEYWORD,poe.com,Proxy
+# poe.com
 HOST-SUFFIX,poe.com,Proxy
-HOST-KEYWORD,quora.com,Proxy
+HOST-KEYWORD,poe.com,Proxy
 HOST-SUFFIX,quora.com,Proxy
+HOST-KEYWORD,quora.com,Proxy
