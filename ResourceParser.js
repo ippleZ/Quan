@@ -248,10 +248,7 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
 }
 
 
-/**
 # 以下为具体的 function
-
-**/
 
 function ParseUnknown(cnt){
   try {
