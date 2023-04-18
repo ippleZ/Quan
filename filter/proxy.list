@@ -2,4 +2,4 @@
 HOST-SUFFIX,poe.com,Proxy
 HOST-SUFFIX,quora.com,Proxy
 HOST-SUFFIX,quoracdn.net,Proxy
-USER-AGENT,poe,Proxy
+USER-AGENT,Poe,Proxy
