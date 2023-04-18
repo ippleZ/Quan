@@ -3,3 +3,5 @@ HOST-SUFFIX,poe.com,Proxy
 HOST-KEYWORD,poe.com,Proxy
 HOST-SUFFIX,quora.com,Proxy
 HOST-KEYWORD,quora.com,Proxy
+HOST-SUFFIX,quoracdn.net,Proxy
+HOST-KEYWORD,quoracdn.net,Proxy
