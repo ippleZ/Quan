@@ -5,5 +5,4 @@ HOST-SUFFIX,quoracdn.net,Proxy
 USER-AGENT,Poe,Proxy
 # jsdelivr
 HOST-SUFFIX,cdn.jsdelivr.net,Proxy
-# fastly
 HOST-SUFFIX,fastly.jsdelivr.net,Proxy
