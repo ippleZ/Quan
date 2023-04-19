@@ -1,2 +1,5 @@
+# 12306
 HOST,ad.12306.cn,DIRECT
-HOST,ghproxy.com,DIRECT
+# jsdelivr
+HOST-SUFFIX,cdn.jsdelivr.net,Proxy
+HOST-SUFFIX,fastly.jsdelivr.net,Proxy
