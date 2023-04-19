@@ -3,6 +3,3 @@ HOST-SUFFIX,poe.com,Proxy
 HOST-SUFFIX,quora.com,Proxy
 HOST-SUFFIX,quoracdn.net,Proxy
 USER-AGENT,Poe,Proxy
-# jsdelivr
-HOST-SUFFIX,cdn.jsdelivr.net,Proxy
-HOST-SUFFIX,fastly.jsdelivr.net,Proxy
