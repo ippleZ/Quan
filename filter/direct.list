@@ -1,2 +1,4 @@
 # 12306
 HOST,ad.12306.cn,DIRECT
+# jsdelivr
+HOST-SUFFIX,fastly.jsdelivr.net,DIRECT
