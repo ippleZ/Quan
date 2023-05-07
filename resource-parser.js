@@ -250,8 +250,7 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
 }
 
 
-
-//以下为具体的 function
+// 以下为具体的 function
 
 function ParseUnknown(cnt){
   try {
@@ -2330,7 +2329,7 @@ function get_emoji(emojip, sname) {
     "🇸🇮": ["斯洛文尼亚", "斯洛文尼亞", "Slovenia"],
     "🇦🇲": ["亚美尼亚", "亞美尼亞", "Armenia"],
     "🇷🇸": ["RS ","RS_", "塞尔维亚", "塞爾維亞", "Seville", "Sevilla"],
-    "🇲🇩": ["摩爾多瓦","MD","摩尔多瓦", "Moldova"],
+    "🇲🇩": ["摩爾多瓦"," MD-","摩尔多瓦", "Moldova"," MD "],
     "🇩🇪": ["DE ", "DE-", "DE_", "German", "GERMAN", "德国", "德國", "法兰克福","京德","滬德","廣德","沪德","广德"],
     "🇩🇰": ["DK","DNK","丹麦","丹麥", "Denmark"],
     "🇪🇸": ["ES", "西班牙", "Spain"],
@@ -2378,7 +2377,7 @@ function get_emoji(emojip, sname) {
     "🇦🇪": ["United Arab Emirates", "阿联酋","AE ", "迪拜", "Dubai"],
     "🇧🇷": ["BR", "Brazil", "巴西", "圣保罗"],
     "🇯🇵": ["JP", "Japan","JAPAN", "日本", "东京", "大阪", "埼玉", "京日", "苏日", "沪日","上日", "穗日", "川日", "中日", "泉日", "杭日", "深日", "辽日", "广日", "Tokyo"],
-    "🇦🇷": ["AR", "Argentina", "阿根廷"],
+    "🇦🇷": ["AR ", "Argentina", "阿根廷","AR-"],
     "🇳🇴": ["Norway", "挪威", "NO"],
     "🇵🇱": [" PL", "POL", "波兰","波蘭", "Poland"],
     "🇨🇱": ["智利","Chile","CHILE"],
@@ -2418,7 +2417,10 @@ function get_emoji(emojip, sname) {
     "🇬🇹": ["危地马拉", " GT "],
     "🇭🇰": ["HK", "Hongkong", "Hong Kong", "HongKong", "HONG KONG","香港", "深港", "沪港", "呼港", "HKT", "HKBN", "HGC", "WTT", "CMI", "穗港", "京港", "港"],
     "🇨🇳": ["CN", "China", "回国", "中国","中國", "江苏", "北京", "上海", "广州", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
+    "🇱🇮": ["列支敦士登"],
     "🇬🇺": ["关岛"],
+    "🇮🇶": ["伊拉克"],
+    "🇸🇨": ["塞舌尔"],
     "🇱🇧": ["黎巴嫩","LB", "Lebanon"],
     "🇧🇳": ["文莱","BRN","Negara Brunei Darussalam"],
     "🌏": ["亚洲","Asia"]
