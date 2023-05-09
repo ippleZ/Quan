@@ -2261,7 +2261,7 @@ function Rename(str) {
                 } else { name = oname + name.trim() }
             } else if (nname && oname == "") {//后缀
                 name = name.trim() + nname
-            } else if (oname && oname.indexOf("☠️") != -1) { //删除特定字符，多字符用.连接
+            } else if (oname && oname.indexOf("〇") != -1) { //删除特定字符，多字符用.连接
                 hh = Dot2(oname.slice(0, oname.length - 2)).split(".") //符号.的特殊处理
                 for (j = 0; j < hh.length; j++) {
                     var nn = escapeRegExp(ToDot(hh[j]))
