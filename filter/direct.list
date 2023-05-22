@@ -1,4 +1,4 @@
 # 12306
-HOST,ad.12306.cn,DIRECT
+HOST,ad.12306.cn, QuanX
 # PIKPAK
-HOST-SUFFIX, mypikpak.com, DIRECT
+HOST-SUFFIX, mypikpak.com, QuanX
