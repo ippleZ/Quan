@@ -1,5 +1,5 @@
 # poe
-HOST-SUFFIX,poe.com,Proxy
-HOST-SUFFIX,quora.com,Proxy
-HOST-SUFFIX,quoracdn.net,Proxy
-USER-AGENT,Poe,Proxy
+HOST-SUFFIX,poe.com,QuanX
+HOST-SUFFIX,quora.com,QuanX
+HOST-SUFFIX,quoracdn.net,QuanX
+USER-AGENT,Poe,QuanX
