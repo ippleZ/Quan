@@ -2,15 +2,15 @@
 var lines = $response.body.split('\n');
 
 // 定义正则表达式模式
-var regex = /https:\/\/github\.com\/ddgksf2013\/Scripts\/raw\/master\/(.+)/;
-var githubRegex = /^https:\/\/raw\.githubusercontent\.com\//;
+var regex1 = /https:\/\/github\.com\/ddgksf2013\/Scripts\/raw\/master\/(.+)/;
+var regex2 = /https:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)/;
 
 // 遍历每一行进行匹配和替换
 for (var i = 0; i < lines.length; i++) {
-  if (regex.test(lines[i])) {
-    lines[i] = lines[i].replace(regex, 'https://raw.gitmirror.com/ddgksf2013/Scripts/master/$1');
-  } else if (githubRegex.test(lines[i])) {
-    lines[i] = lines[i].replace(githubRegex, 'https://raw.gitmirror.com/');
+  if (regex1.test(lines[i])) {
+    lines[i] = lines[i].replace(regex1, 'https://raw.gitmirror.com/ddgksf2013/Scripts/master/$1');
+  } else if (regex2.test(lines[i])) {
+    lines[i] = lines[i].replace(regex2, 'https://raw.gitmirror.com/$1/$2/$3/$4');
   }
 }
 
