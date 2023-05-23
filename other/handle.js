@@ -1,18 +1,10 @@
-// 将 $response.body 按行分割成数组
-var lines = $response.body.split('\n');
-
 // 定义正则表达式模式
-var regex = /https:\/\/github\.com\/ddgksf2013\/Scripts\/raw\/master\/(.+)/;
+var regex1 = /https:\/\/github\.com\/ddgksf2013\/Scripts\/raw\/master\/(.+)/gmi;
+var regex2 = /https:\/\/raw.githubusercontent.com\/(.+?)\/(.+?)\/(.+)/gmi;
 
-// 遍历每一行进行匹配和替换
-for (var i = 0; i < lines.length; i++) {
-  if (regex.test(lines[i])) {
-    lines[i] = lines[i].replace(regex, 'https://raw.gitmirror.com/ddgksf2013/Scripts/master/$1');
-  }
-}
-
-// 将修改后的行数组重新合并为字符串
-var modifiedBody = lines.join('\n');
+// 替换匹配项
+var modifiedBody = $response.body.replace(regex1, 'https://raw.gitmirror.com/ddgksf2013/Scripts/master/$1');
+modifiedBody = modifiedBody.replace(regex2, 'https://raw.gitmirror.com/$1/$2/$3');
 
 // 返回修改后的响应体
-$done({ body: modifiedBody });
+$done({ body: modifiedBody })
