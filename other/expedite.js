@@ -3,7 +3,7 @@ var lines = $response.body.split('\n');
 
 // 定义正则表达式模式
 var regex1 = /https:\/\/github\.com\/ddgksf2013\/Scripts\/raw\/master\/(.+)/;
-var regex2 = /https:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)/;
+var regex2 = //https:\/\/raw.githubusercontent.com\/(.*?)\/(.*?)\/(.*)/;
 
 // 遍历每一行进行匹配和替换
 for (var i = 0; i < lines.length; i++) {
