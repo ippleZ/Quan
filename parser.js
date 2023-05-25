@@ -1,8 +1,6 @@
-//beginning 解析器正常使用，調試註釋此部分
-
 let [link0, content0, subinfo] = [$resource.link, $resource.content, $resource.info]
 let version = typeof $environment != "undefined" ? Number($environment.version.split("build")[1]): 0 // 版本号
-let Perror = 0 //错误类型
+let Perror = 0 // 错误类型
 
 const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
 ////// 非 raw 链接的沙雕情形
@@ -250,7 +248,10 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
 }
 
 
-// 以下为具体的 function
+/**
+# 以下为具体的 function
+
+*/
 
 function ParseUnknown(cnt){
   try {
@@ -1005,8 +1006,8 @@ function SCP2QX(subs) {
         } else if(subs[i].indexOf(" _ reject") != -1) { // rewrite reject 类型(surge)
           rw = subs[i].split(" ")[0] + " url reject-200"
           nrw.push(rw)
-        } else if(subs[i].indexOf(" - reject") != -1 ) { //shadowrocket reject
-          rw = subs[i].replace(" - ", " url ")
+        } else if(subs[i].indexOf(" - reject") != -1 || subs[i].indexOf(" - REJECT") != -1) { //shadowrocket reject/REJECT
+          rw = subs[i].replace(" - ", " url ").toLowerCase()
           nrw.push(rw)
         } else if(subs[i].split(" ").length == 2 && /\s(reject)$/.test(subs[i])){ // loon 类型？ http://xxx/yyy reject
           rw = subs[i].replace(" reject", " url reject")
@@ -2119,7 +2120,7 @@ function isQuanXRewrite(content) {
       if (cnti.indexOf("pattern")!=-1 && cnti.indexOf("type")!=-1 || cnti.indexOf("http-r")!=-1) {
         cnti=SGMD2QX(cnti)[0]? SGMD2QX(cnti)[0]:""
         //console.log(cnti)
-      }else if ((cnti.indexOf(" 302")!=-1 || cnti.indexOf(" 307")!=-1 || (/\s(_|-)\sreject/.test(cnti)) || (/\sreject$/.test(cnti))) && cnti.indexOf(" url ")==-1 && cnti.indexOf(" url-and-header ")==-1 ){
+      }else if ((cnti.indexOf(" 302")!=-1 || cnti.indexOf(" 307")!=-1 || (/\s(_|-)\s(reject|REJECT)/.test(cnti)) || (/\sreject$/.test(cnti))) && cnti.indexOf(" url ")==-1 && cnti.indexOf(" url-and-header ")==-1 ){
         cnti=SGMD2QX(cnti)[0]? SGMD2QX(cnti)[0]:""
         //console.log("sss",cnti)
       }else if(cnti.indexOf(" data=")!=-1){
@@ -2261,7 +2262,7 @@ function Rename(str) {
                 } else { name = oname + name.trim() }
             } else if (nname && oname == "") {//后缀
                 name = name.trim() + nname
-            } else if (oname && oname.indexOf("/") != -1) { //删除特定字符，多字符用.连接
+            } else if (oname && oname.indexOf("☠️") != -1) { //删除特定字符，多字符用.连接
                 hh = Dot2(oname.slice(0, oname.length - 2)).split(".") //符号.的特殊处理
                 for (j = 0; j < hh.length; j++) {
                     var nn = escapeRegExp(ToDot(hh[j]))
@@ -2419,6 +2420,7 @@ function get_emoji(emojip, sname) {
     "🇨🇳": ["CN", "China", "回国", "中国","中國", "江苏", "北京", "上海", "广州", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
     "🇱🇮": ["列支敦士登"],
     "🇬🇺": ["关岛"],
+    "🇦🇶": ["南极"],
     "🇮🇶": ["伊拉克"],
     "🇸🇨": ["塞舌尔"],
     "🇱🇧": ["黎巴嫩","LB", "Lebanon"],
