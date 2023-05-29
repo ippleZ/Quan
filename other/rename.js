@@ -520,9 +520,9 @@ var locationList = [{
 		enShortThree: "AFG"
 	}, {
 		zh: "阿尔巴尼亚",
-		enShort: "AL",
+		enShort: "",
 		enFull: "Albania",
-		reg: "AL|Albania|阿爾巴尼亞|阿尔巴尼亚",
+		reg: "Albania|阿爾巴尼亞|阿尔巴尼亚",
 		flag: "🇦🇱",
 		enShortThree: "ALB"
 	}, {
@@ -546,9 +546,9 @@ var locationList = [{
 		enShortThree: "ARG"
 	}, {
 		zh: "亚美尼亚",
-		enShort: "AM",
+		enShort: "",
 		enFull: "Armenia",
-		reg: "AM|Armenia",
+		reg: "Armenia",
 		enShortThree: "ARM"
 	}, {
 		zh: "奥地利",
@@ -1023,9 +1023,9 @@ var locationList = [{
 		enShortThree: "KAZ"
 	}, {
 		zh: "肯尼亚",
-		enShort: "KE",
+		enShort: "",
 		enFull: "Kenya",
-		reg: "KE|Kenya|KE|肯尼亚",
+		reg: "Kenya|KE|肯尼亚",
 		flag: "🇰🇪",
 		enShortThree: "KEN"
 	}, {
