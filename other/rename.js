@@ -4,7 +4,7 @@ var extendStatics = function(e, r) {
 	}
 	instanceof Array &&
 	function(e, r) {
-		e.__proto__ = r
+		e.__proto__= r
 	} ||
 	function(e, r) {
 		for (var n in r) Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n])
@@ -408,26 +408,6 @@ function reName(e, r, n, t) {
 	return o
 }
 var locationList = [{
-	zh: "懒人节点",
-	enShort: "lazy",
-	enFull: "lazy person",
-	reg: "懒人",
-	custom: "lazy",
-	flag: "🏴‍☠️",
-	enShortThree: "",
-	ignoreFlag: !0
-},
-{
-	zh: "网易云",
-	enShort: "Netease",
-	enFull: "Netease Unblock",
-	reg: "Netease|unblock|unlock|music",
-	custom: "Music",
-	flag: "🇨🇳",
-	enShortThree: "",
-	ignoreFlag: !0
-},
-{
 	zh: "香港",
 	enShort: "HK",
 	enFull: "Hong Kong",
@@ -1829,38 +1809,6 @@ var locationList = [{
 	enShortThree: "BGD"
 }],
 modifiedList = [{
-	zh: "实验",
-	enShort: "EXP",
-	enFull: "EXP",
-	custom: "EXP",
-	reg: "实验",
-	action: "rename"
-},
-{
-	zh: "标准",
-	enShort: "STD",
-	enFull: "STD",
-	custom: "STD",
-	reg: "标准",
-	action: "rename"
-},
-{
-	zh: "高级",
-	enShort: "PRO",
-	enFull: "PRO",
-	custom: "PRO",
-	reg: "高级",
-	action: "rename"
-},
-{
-	zh: "购物",
-	enShort: "Shop",
-	enFull: "Shoping",
-	custom: "Shop",
-	reg: "购物",
-	action: "rename"
-},
-{
 	zh: "Premium",
 	enShort: "Pre",
 	enFull: "Premium",
@@ -1957,22 +1905,6 @@ modifiedList = [{
 	action: "rename"
 },
 {
-	zh: "核心",
-	enShort: "Kern",
-	enFull: "Kern",
-	custom: "Kern",
-	reg: "核心",
-	action: "rename"
-},
-{
-	zh: "边缘",
-	enShort: "Edge",
-	enFull: "Edge",
-	custom: "Edge",
-	reg: "边缘",
-	action: "rename"
-},
-{
 	zh: "商宽",
 	enShort: "BIZ",
 	enFull: "BIZ",
@@ -2000,7 +1932,7 @@ deleteList = [{
 	zh: "无用节点",
 	enFull: "",
 	enShort: "",
-	reg: "过期|邀请|订阅|时间|应急|expire|traffic|更新|测速|官网|http|加入|剩余|流量|套餐|到期"
+	reg: "过期|订阅|时间|官网|剩余|流量|套餐|到期"
 }],
 actionObject = {
 	locationList: locationList,
