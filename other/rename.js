@@ -86,10 +86,10 @@ function stripOnes(proxies) {
 
 // 简繁转换
 function charPYStr() {
-  return '';}
+  return '圈';}
 
 function ftPYStr() {
-  return '';}
+  return '圈';}
 
 function simplify(cc) {
   let str = '';
