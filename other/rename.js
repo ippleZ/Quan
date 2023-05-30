@@ -84,29 +84,13 @@ function stripOnes(proxies) {
   return proxies
 };
 
-// 简繁转换
-function charPYStr() {
-  return '圈';}
-
-function ftPYStr() {
-  return '圈';}
-
-function simplify(cc) {
-  let str = '';
-  for (let i = 0; i < cc.length; i++) {
-    if (ftPYStr().indexOf(cc.charAt(i)) !== -1) str += charPYStr().charAt(ftPYStr().indexOf(cc.charAt(i)));
-    else str += cc.charAt(i);
-  }
-  return str;
-}
-
 // 主函数
 function operator(proxies) {
   proxies.map((res) => {
     const resultArray = [airport];
     var matched = false
     for (const elem of Object.keys(countries)) {
-      if (simplify(res.name).indexOf(elem) !== -1) {
+      if (/* 改动： */res.name.indexOf(elem) !== -1) {
         countries[elem][1] += 1;
         if (!autofill) {
           resultArray.push(countries[elem][0], countries[elem][1]);
@@ -122,7 +106,7 @@ function operator(proxies) {
       resultArray.push(res.name);
     };
     Object.keys(others).forEach((elem, index) => {
-      if (simplify(res.name).indexOf(elem) !== -1) {
+      if (/* 改动： */res.name.indexOf(elem) !== -1) {
         resultArray.splice(2, 0, others[elem]);
       }
     });
