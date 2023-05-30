@@ -396,14 +396,14 @@ function reName(e, r, n, t) {
 			.concat(a[i].reg) : a[i].reg;
 		if (new RegExp(u, "gi")
 			.test(e)) {
-			["enShort", "enFull", "zh", "enShortThree"].includes(n) ? o.location = a[i][n] || a[i].enShort : o.location = a[i].custom || a[i].enFull, o.flag = a[i].flag || "🏴‍☠️";
+			["enFull", "enShort", "zh", "enShortThree"].includes(n) ? o.location = a[i][n] || a[i].enShort : o.location = a[i].custom || a[i].enFull, o.flag = a[i].flag || "🏴‍☠️";
 			break
 		}
 	}
 	for (i = 0; i < h.length; i++) {
 		if (new RegExp(h[i].reg, "gi")
 			.test(e)) {
-			["enShort", "enFull", "zh"].includes(t) ? o.modified = h[i][t] : o.modified = h[i].custom || h[i].enShort, "rename" !== o.action && (o.action = h[i].action);
+			["enFull", "enShort", "zh"].includes(t) ? o.modified = h[i][t] : o.modified = h[i].custom || h[i].enShort, "rename" !== o.action && (o.action = h[i].action);
 			break
 		}
 	}
