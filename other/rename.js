@@ -19,14 +19,14 @@ switch ($arguments['input']) {
 };
 
 switch ($arguments['output']) {
+	case 'enFull':
+		var outputList = enFull;
+		break;
 	case 'enShort':
 		var outputList = enShort;
 		break;
 	case 'enShort3':
 		var outputList = enShort3;
-		break;
-	case 'enFull':
-		var outputList = enFull;
 		break;
 	default:
 		var outputList = zh;
