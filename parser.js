@@ -1,5 +1,6 @@
-let [link0， content0， subinfo] = [$resource.link, $resource.content, $resource.info]
-let version = typeof $environment != "undefined" ? Number($environment.version。split("build")[1]): 0 // 版本号
+//beginning 解析器正常使用，調試註釋此部分
+let [link0, content0, subinfo] = [$resource.link, $resource.content, $resource.info]
+let version = typeof $environment != "undefined" ? Number($environment.version.split("build")[1]): 0 // 版本号
 let Perror = 0 //错误类型
 
 const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
@@ -7,33 +8,32 @@ const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
 content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : content0 ;
 //ends 正常使用部分，調試註釋此部分
 
-
-var para = /^(http|https)\:\/\//。test(link0) ? link0 : content0.split("\n")[0];
-var para1 = para.slice(para.indexOf("#") + 1)。replace(/\$type/g，"node_type_para_prefix")。replace(/\$emoji/g，"node_emoji_flag_prefix")。replace(/\$tag/g，"node_tag_prefix")。replace(/\$index/g，"node_index_prefix") //防止参数中其它位置也存在"#"
+var para = /^(http|https)\:\/\//.test(link0) ? link0 : content0.split("\n")[0];
+var para1 = para.slice(para.indexOf("#") + 1).replace(/\$type/g,"node_type_para_prefix").replace(/\$emoji/g,"node_emoji_flag_prefix").replace(/\$tag/g,"node_tag_prefix").replace(/\$index/g,"node_index_prefix") //防止参数中其它位置也存在"#"
 var mark0 = para.indexOf("#") != -1 ? true : false; //是否有參數需要解析
-var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1]。split("&")[0] : 0;
+var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1].split("&")[0] : 0;
 var ntf_flow = 0;
 //常用量
 const Base64 = new Base64Code();
-const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g， '\\$&'); //处理特殊符号以便正则匹配使用
+const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'); //处理特殊符号以便正则匹配使用
 var link1 = link0.split("#")[0]
 const qxpng = "https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png" // server sub-info link
-const subinfo_link = { "open-url": "https://t.me/QuanX_API"， "media-url": "https://shrtm.nu/ebAr" };
+const subinfo_link = { "open-url": "https://t.me/QuanX_API", "media-url": "https://shrtm.nu/ebAr" };
 const subinfo_link1 = { "open-url": link1, "media-url": "https://shrtm.nu/uo13" } // server sub-info link(fake-nodes)
 const rwrite_link = { "open-url": link1, "media-url": "https://shrtm.nu/x3o2" } // rewrite filter link
 const rwhost_link = { "open-url": link1, "media-url": "https://shrtm.nu/0n5J" } // hostname filter link
 const rule_link = { "open-url": link1, "media-url": "https://shrtm.nu/cpHD" } // rule filter link
 const nan_link = { "open-url": link1, "media-url": qxpng } // nan error link
-const bug_link = { "open-url": "https://t.me/Shawn_Parser_Bot"， "media-url": "https://shrtm.nu/obcB" } // bug link
+const bug_link = { "open-url": "https://t.me/Shawn_Parser_Bot", "media-url": "https://shrtm.nu/obcB" } // bug link
 const sub_link = { "open-url": link1, "media-url": "https://shrtm.nu/ebAr" } // server link
-const update_link = {"open-url" : "https://apps.apple.com/us/app/quantumult-x/id1443988620"， "media-url": qxpng}
+const update_link = {"open-url" : "https://apps.apple.com/us/app/quantumult-x/id1443988620", "media-url": qxpng}
 const plink0 = {"open-url" : link0, "media-url": qxpng} // 跳转订阅链接
 
-if(version == 0) { $notify("⚠️ 请更新 Quantumult X 至最新商店版本\n"，"🚦 当前版本可能无法正常使用部分功能"，"\n👉 点击跳转商店链接更新",update_link) }
+if(version == 0) { $notify("⚠️ 请更新 Quantumult X 至最新商店版本\n","🚦 当前版本可能无法正常使用部分功能","\n👉 点击跳转商店链接更新",update_link) }
 
 const ADDRes = `quantumult-x:///add-resource?remote-resource=url-encoded-json`
 var RLink0 = {
-  "filter_remote": []，
+  "filter_remote": [],
   "rewrite_remote": [],
   "server_remote": [],
 }
@@ -2304,7 +2304,127 @@ function emoji_del(str) {
 
 //为节点名添加 emoji
 function get_emoji(emojip, sname) {
-   var Lmoji = {
+   var Lmoji = { 
+    "🏳️‍🌈": ["流量", "套餐", "剩余", "重置", "到期" , "时间", "应急", "过期", "Bandwidth", "expire", "Traffic", "traffic"],
+    "🇴🇲": ["阿曼", " OM "],
+    "🇦🇩": ["安道尔", "Andorra"],
+    "🇦🇿": ["阿塞拜疆","Azerbaijan"],
+    "🇦🇹": ["奥地利", "奧地利", "Austria", "维也纳"],
+    "🇦🇺": ["AU", "Australia", "Sydney", "澳大利亚", "澳洲", "墨尔本", "悉尼" ,"土澳", "京澳","廣澳","滬澳","沪澳","广澳"],
+    "🇧🇪": ["BE", "比利時","比利时","Belgium"],
+    "🇧🇬": ["保加利亚", "保加利亞","Bulgaria"],
+    "🇵🇰": ["巴基斯坦","Pakistan", "PAKISTAN"],
+    "🇧🇭": ["巴林","Bahrain"],
+    "🇵🇾": ["巴拉圭","Paraguay"],
+    "🇰🇭": ["柬埔寨","Cambodia"],
+    "🇺🇦": ["烏克蘭","乌克兰","Ukraine"],
+    "🇺🇿": ["乌兹别克斯坦", "烏茲別克斯坦","Uzbekistan"],
+    "🇭🇷": ["克罗地亚","HR","克羅地亞", "Croatia"],
+    "🇨🇦": ["CA", "Canada","CANADA", "CAN", "Waterloo", "加拿大", "蒙特利尔", "温哥华", "楓葉", "枫叶", "滑铁卢", "多伦多"],
+    "🇨🇭": ["瑞士", "苏黎世", "Switzerland", "CH "],
+    "🇳🇬": ["尼日利亚", "NG", "尼日利亞","拉各斯", "Nigeria"],
+    "🇨🇿": ["Czechia", "捷克"],
+    "🇸🇰": ["斯洛伐克", "SK" , "Slovakia"],
+    "🇸🇮": ["斯洛文尼亚", "斯洛文尼亞", "Slovenia"],
+    "🇦🇲": ["亚美尼亚", "亞美尼亞", "Armenia"],
+    "🇷🇸": ["RS ","RS_", "塞尔维亚", "塞爾維亞", "Seville", "Sevilla"],
+    "🇲🇩": ["摩爾多瓦"," MD-","摩尔多瓦", "Moldova"," MD "],
+    "🇩🇪": ["DE ", "DE-", "DE_", "German", "GERMAN", "德国", "德國", "法兰克福","京德","滬德","廣德","沪德","广德"],
+    "🇩🇰": ["DK","DNK","丹麦","丹麥", "Denmark"],
+    "🇪🇸": ["ES", "西班牙", "Spain"],
+    "🇪🇺": ["EU", "欧盟", "欧罗巴","欧洲", "European"],
+    "🇫🇮": ["Finland", "芬兰","芬蘭","赫尔辛基"],
+    "🇫🇷": ["FR", "France", "法国", "法國", "巴黎"],
+    "🇷🇪": ["留尼汪", "留尼旺", "Réunion", "Reunion"],
+    "🇨🇼": ["库拉索", "庫拉索", "Curaçao"],
+    "🇬🇧": ["UK", "GB ", "England", "United Kingdom", "英国", "伦敦", "英", "Britain"],
+    "🇲🇴": ["MO", "Macao","Macau", "MAC", "澳门", "澳門", "CTM"],
+    "🇰🇿": ["哈萨克斯坦", "哈薩克斯坦", "Kazakhstan"],
+    "🇱🇦": ["老挝","老挝", "Laos"],
+    "🇭🇺": ["匈牙利", "Hungary"],
+    "🇱🇹": ["立陶宛", "Lithuania"],
+    "🇱🇰": ["斯里兰卡", "斯里蘭卡", "Sri Lanka"],
+    "🇧🇾": ["BY","白俄罗斯","白俄羅斯", "White Russia", "Republic of Belarus", "Belarus"],
+    "🇷🇺": ["RU ","RU-", "RU_", "RUS", "Russia", "俄罗斯", "毛子", "俄国", "俄羅斯", "伯力", "莫斯科", "圣彼得堡", "西伯利亚", "新西伯利亚", "京俄", "杭俄","廣俄","滬俄","广俄","沪俄"],
+    "🇸🇬": ["SG", "Singapore","SINGAPORE", "新加坡", "狮城", "獅城", "沪新", "京新", "泉新", "穗新", "深新", "杭新", "广新","廣新","滬新"],
+    "🇺🇸": ["US", "USA", "America", "United States", "美国", "美", "京美", "波特兰", "达拉斯", "俄勒冈", "凤凰城", "费利蒙", "硅谷", "矽谷", "拉斯维加斯", "洛杉矶", "圣何塞", "圣荷西", "圣克拉拉", "西雅图", "芝加哥", "沪美", "哥伦布", "纽约"],
+    "🇹🇼": ["TW", "Taiwan","TAIWAN", "台湾", "台北", "台中", "新北", "彰化", "CHT", "台", "HINET"],
+    "🇮🇩": ["ID ", "IDN ", "Indonesia", "印尼", "印度尼西亚", "雅加达"],
+    "🇮🇪": ["Ireland", "IRELAND", "IE ", "爱尔兰", "愛爾蘭", "都柏林"],
+    "🇮🇱": ["Israel", "以色列"],
+    "🇮🇳": ["India", "IND", "INDIA","印度", "孟买", "Mumbai","IN "],
+    "🇮🇸": ["IS","ISL", "冰岛","冰島", "Iceland"],
+    "🇰🇵": ["KP", "朝鲜", "North Korea"],
+    "🇰🇷": ["KR", "Korea", "KOR", "韩国", "首尔", "韩", "韓","春川"],
+    "🇬🇭": ["加纳", "Ghana"],
+    "🇱🇺": ["卢森堡", "LU ", "Luxembourg"],
+    "🇱🇻": ["Latvia", "Latvija", "拉脱维亚"],
+    "🇧🇩": ["孟加拉", "Bengal"],
+    "🇲🇽️": [" MEX", "MX", "墨西哥", "Mexico", "MEXICO"],
+    "🇲🇾": [" MY", "Malaysia","MALAYSIA", "马来西亚", "马来", "馬來", "大马", "大馬", "馬來西亞", "吉隆坡"],
+    "🇲🇲": ["缅甸"],
+    "🇳🇱": [" NL", "Netherlands", "荷兰", "荷蘭", "尼德蘭", "阿姆斯特丹"],
+    "🇵🇭": [" PH", "Philippines", "菲律宾", "菲律賓"],
+    "🇷🇴": [" RO ", "罗马尼亚", "Rumania"],
+    "🇸🇦": ["沙特", "利雅得", "Saudi Arabia", "Saudi"],
+    "🇸🇪": ["SE", "Sweden","瑞典"],
+    "🇹🇭": [" TH", "Thailand", "泰国", "泰國", "曼谷"],
+    "🇹🇷": ["TR ","TR-", "TR_", "TUR", "Turkey", "土耳其", "伊斯坦布尔"],
+    "🇻🇳": ["VN", "越南", "胡志明市", "Vietnam"],
+    "🇮🇹": ["Italy", " IT ", "Nachash", "意大利", "米兰", "義大利"],
+    "🇿🇦": ["South Africa", "南非", "Johannesburg"],
+    "🇦🇪": ["United Arab Emirates", "阿联酋","AE ", "迪拜", "Dubai"],
+    "🇧🇷": ["BR", "Brazil", "巴西", "圣保罗"],
+    "🇯🇵": ["JP", "Japan","JAPAN", "日本", "东京", "大阪", "埼玉", "京日", "苏日", "沪日","上日", "穗日", "川日", "中日", "泉日", "杭日", "深日", "辽日", "广日", "Tokyo"],
+    "🇦🇷": ["AR ", "Argentina", "阿根廷","AR-"],
+    "🇳🇴": ["Norway", "挪威", "NO"],
+    "🇵🇱": [" PL", "POL", "波兰","波蘭", "Poland"],
+    "🇨🇱": ["智利","Chile","CHILE"],
+    "🇳🇿": ["新西蘭","新西兰", "New Zealand"],
+    "🇬🇷": ["希腊","希臘", "Greece"],
+    "🇪🇬": ["埃及", "Egypt"],
+    "🇮🇲": ["马恩岛","馬恩島", "Isle of Man", "Mannin"],
+    "🇵🇹": ["葡萄牙", "Portugal"],
+    "🇲🇳": ["蒙古", "Mongolia"],
+    "🇵🇪": ["秘鲁","祕魯", "Peru"],
+    "🇨🇴": ["哥伦比亚", "Colombia"],
+    "🇪🇪": ["爱沙尼亚", "Estonia"],
+    "🇱🇾": ["利比亚","Libya"],
+    "🇲🇰": ["马其顿","馬其頓", "Macedonia"],
+    "🇲🇹": ["马耳他", "Malta"],
+    "🇻🇪": ["委内瑞拉", "Venezuela"],
+    "🇧🇦": ["波黑共和国","波黑", "Bosnia and Herzegovina"],
+    "🇬🇪": ["格魯吉亞","格鲁吉亚", "Georgia"],
+    "🇦🇱": ["阿爾巴尼亞","阿尔巴尼亚", "Albania"],
+    "🇨🇾": ["CY","塞浦路斯", "Cyprus"],
+    "🇨🇷": ["哥斯达黎加", "Costa Rica"],
+    "🇹🇳": ["突尼斯", "Tunisia"],
+    "🇻🇦": ["梵蒂冈"],
+    "🇷🇼": ["卢旺达"],
+    "🇵🇦": ["巴拿马","巴拿馬", "Panama"],
+    "🇮🇷": ["伊朗", "Iran"],
+    "🇯🇴": ["约旦", "約旦", "Jordan"],
+    "🇺🇾": ["乌拉圭" , "烏拉圭", "Uruguay"],
+    "🇰🇪": ["肯尼亚", "肯尼亞", "Kenya"],
+    "🇰🇬": ["吉尔吉斯坦","吉尔吉斯斯坦", "Kyrghyzstan"],
+    "🇳🇵": ["尼泊尔", "Nepal"],
+    "🇽🇰": ["科索沃", "Kosovo"],
+    "🇲🇦": ["摩洛哥", "Morocco"],
+    "🇪🇨": ["厄瓜多尔","EC", "Ecuador"],
+    "🇲🇺": ["毛里求斯", "Mauritius"],
+    "🇵🇷": ["波多黎各", "PR ","PR-", "Puerto Rico"],
+    "🇬🇹": ["危地马拉", " GT "],
+    "🇭🇰": ["HK", "Hongkong", "Hong Kong", "HongKong", "HONG KONG","香港", "深港", "沪港", "呼港", "HKT", "HKBN", "HGC", "WTT", "CMI", "穗港", "京港", "港"],
+    "🇨🇳": ["CN", "China", "回国", "中国","中國", "江苏", "北京", "上海", "广州", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
+    "🇱🇮": ["列支敦士登"],
+    "🇬🇺": ["关岛"],
+    "🇦🇶": ["南极"],
+    "🇮🇶": ["伊拉克"],
+    "🇸🇨": ["塞舌尔"],
+    "🇶🇦": ["卡塔尔", "卡塔爾", " QA "],
+    "🇸🇾": ["叙利亚", "敘利亞", " SY "],
+    "🇱🇧": ["黎巴嫩","LB", "Lebanon"],
+    "🇧🇳": ["文莱","BRN","Negara Brunei Darussalam"],
     "🌏": ["亚洲","Asia"]
   }
     str1 = JSON.stringify(Lmoji)
