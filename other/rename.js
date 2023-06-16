@@ -34,12 +34,12 @@ switch ($arguments['output']) {
 
 var countries = {};
 for (let i in inputList) {
-	countries[inputList[i]] = [outputList[i]， 0];
+	countries[inputList[i]] = [outputList[i], 0];
 }
 
 // 其它
 var others = {
-	'[Premium]': '[Premium]'，
+	'[Premium]': '[Premium]',
 //	专线: 'Spec',
 //	核心: 'Kern',
 //	边缘: 'Edge',
