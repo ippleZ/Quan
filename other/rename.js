@@ -14,7 +14,7 @@ switch ($arguments['input']) {
 	case 'enShort3':
 		var inputList = enShort3;
 		break;
-	默认:
+	default:
 		var inputList = zh;
 };
 
