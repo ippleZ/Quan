@@ -1,3 +1,12 @@
 # ========== DIRECT 0 ==========
 
+# 12306
+HOST,ad.12306.cn,QuanX
+# PIKPAK
+HOST-SUFFIX,mypikpak.com,QuanX
+
 # ========== DIRECT 1 ==========
+
+# ========== REJECT 0 ==========
+
+# ========== REJECT 0 ==========
