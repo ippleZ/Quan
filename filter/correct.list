@@ -9,4 +9,6 @@ HOST-SUFFIX,mypikpak.com,QuanX
 
 # ========== REJECT 0 ==========
 
+HOST,access.mypikpak.com,QuanX
+
 # ========== REJECT 0 ==========
