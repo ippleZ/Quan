@@ -1,6 +1,6 @@
 //beginning 解析器正常使用，調試註釋此部分
-let [link0, content0, subinfo] = [$resource.link, $resource.content, $resource.info]
-let version = typeof $environment != "undefined" ? Number($environment.version.split("build")[1]): 0 // 版本号
+let [link0， content0， subinfo] = [$resource.link, $resource.content, $resource.info]
+let version = typeof $environment != "undefined" ? Number($environment.version。split("build")[1]): 0 // 版本号
 let Perror = 0 //错误类型
 
 const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
@@ -8,32 +8,32 @@ const subtag = typeof $resource.tag != "undefined" ? $resource.tag : "";
 content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : content0 ;
 //ends 正常使用部分，調試註釋此部分
 
-var para = /^(http|https)\:\/\//.test(link0) ? link0 : content0.split("\n")[0];
-var para1 = para.slice(para.indexOf("#") + 1).replace(/\$type/g,"node_type_para_prefix").replace(/\$emoji/g,"node_emoji_flag_prefix").replace(/\$tag/g,"node_tag_prefix").replace(/\$index/g,"node_index_prefix") //防止参数中其它位置也存在"#"
+var para = /^(http|https)\:\/\//。test(link0) ? link0 : content0.split("\n")[0];
+var para1 = para.slice(para.indexOf("#") + 1)。replace(/\$type/g，"node_type_para_prefix")。replace(/\$emoji/g，"node_emoji_flag_prefix")。replace(/\$tag/g，"node_tag_prefix")。replace(/\$index/g，"node_index_prefix") //防止参数中其它位置也存在"#"
 var mark0 = para.indexOf("#") != -1 ? true : false; //是否有參數需要解析
-var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1].split("&")[0] : 0;
+var Pinfo = mark0 && para1.indexOf("info=") != -1 ? para1.split("info=")[1]。split("&")[0] : 0;
 var ntf_flow = 0;
 //常用量
 const Base64 = new Base64Code();
-const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'); //处理特殊符号以便正则匹配使用
+const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g， '\\$&'); //处理特殊符号以便正则匹配使用
 var link1 = link0.split("#")[0]
 const qxpng = "https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png" // server sub-info link
-const subinfo_link = { "open-url": "https://t.me/QuanX_API", "media-url": "https://shrtm.nu/ebAr" };
+const subinfo_link = { "open-url": "https://t.me/QuanX_API"， "media-url": "https://shrtm.nu/ebAr" };
 const subinfo_link1 = { "open-url": link1, "media-url": "https://shrtm.nu/uo13" } // server sub-info link(fake-nodes)
 const rwrite_link = { "open-url": link1, "media-url": "https://shrtm.nu/x3o2" } // rewrite filter link
 const rwhost_link = { "open-url": link1, "media-url": "https://shrtm.nu/0n5J" } // hostname filter link
 const rule_link = { "open-url": link1, "media-url": "https://shrtm.nu/cpHD" } // rule filter link
 const nan_link = { "open-url": link1, "media-url": qxpng } // nan error link
-const bug_link = { "open-url": "https://t.me/Shawn_Parser_Bot", "media-url": "https://shrtm.nu/obcB" } // bug link
+const bug_link = { "open-url": "https://t.me/Shawn_Parser_Bot"， "media-url": "https://shrtm.nu/obcB" } // bug link
 const sub_link = { "open-url": link1, "media-url": "https://shrtm.nu/ebAr" } // server link
-const update_link = {"open-url" : "https://apps.apple.com/us/app/quantumult-x/id1443988620", "media-url": qxpng}
+const update_link = {"open-url" : "https://apps.apple.com/us/app/quantumult-x/id1443988620"， "media-url": qxpng}
 const plink0 = {"open-url" : link0, "media-url": qxpng} // 跳转订阅链接
 
-if(version == 0) { $notify("⚠️ 请更新 Quantumult X 至最新商店版本\n","🚦 当前版本可能无法正常使用部分功能","\n👉 点击跳转商店链接更新",update_link) }
+if(version == 0) { $notify("⚠️ 请更新 Quantumult X 至最新商店版本\n"，"🚦 当前版本可能无法正常使用部分功能"，"\n👉 点击跳转商店链接更新",update_link) }
 
 const ADDRes = `quantumult-x:///add-resource?remote-resource=url-encoded-json`
 var RLink0 = {
-  "filter_remote": [],
+  "filter_remote": []，
   "rewrite_remote": [],
   "server_remote": [],
 }
