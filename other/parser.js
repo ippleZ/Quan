@@ -3179,11 +3179,11 @@ function YAML() {
                         res[m[1]] = processValue(m[2]);
                         return res;
                 } else if(m = val.match(regex["array"])){
-                        var count = 0， c = ' ';
+                        var count = 0, c = ' ';
                         var res = [];
                         var content = "";
                         var str = false;
-                        for(var j = 0， lenJ = m[1]。length; j < lenJ; ++j) {
+                        for(var j = 0, lenJ = m[1].length; j < lenJ; ++j) {
                                 c = m[1][j];
                                 if(c == '\'' || c == '"') {
                                         if(str === false) {
@@ -3212,11 +3212,11 @@ function YAML() {
                                 res.push(processValue(content));
                         return res;
                 } else if(m = val.match(regex["map"])){
-                        var count = 0， c = ' ';
+                        var count = 0, c = ' ';
                         var res = [];
                         var content = "";
                         var str = false;
-                        for(var j = 0， lenJ = m[1]。length; j < lenJ; ++j) {
+                        for(var j = 0, lenJ = m[1].length; j < lenJ; ++j) {
                                 c = m[1][j];
                                 if(c == '\'' || c == '"') {
                                         if(str === false) {
@@ -3245,8 +3245,8 @@ function YAML() {
                                 res.push(content);
                                 
                         var newRes = {};
-                        for(var j = 0， lenJ = res.length; j < lenJ; ++j) {
-                                if(m = res[j]。match(regex["key_value"])) {
+                        for(var j = 0, lenJ = res.length; j < lenJ; ++j) {
+                                if(m = res[j].match(regex["key_value"])) {
                                         newRes[m[1]] = processValue(m[2]);
                                 }
                         }
@@ -3261,7 +3261,7 @@ function YAML() {
                 var children = block.children;
                 var str = lines.join(" ");
                 var chunks = [str];
-                for(var i = 0， len = children.length; i < len; ++i) {
+                for(var i = 0, len = children.length; i < len; ++i) {
                         chunks.push(processFoldedBlock(children[i]));
                 }
                 return chunks.join("\n");
@@ -3271,7 +3271,7 @@ function YAML() {
                 var lines = block.lines;
                 var children = block.children;
                 var str = lines.join("\n");
-                for(var i = 0， len = children.length; i < len; ++i) {
+                for(var i = 0, len = children.length; i < len; ++i) {
                         str += processLiteralBlock(children[i]);
                 }
                 return str;
@@ -3290,26 +3290,26 @@ function YAML() {
                 
                 var isMap = true;
                 
-                for(var j = 0， lenJ = blocks.length; j < lenJ; ++j) {
+                for(var j = 0, lenJ = blocks.length; j < lenJ; ++j) {
                         
-                        if(level != -1 && level != blocks[j]。level)
+                        if(level != -1 && level != blocks[j].level)
                                 continue;
                 
                         processedBlocks.push(j);
                 
-                        level = blocks[j]。level;
-                        lines = blocks[j]。lines;
-                        children = blocks[j]。children;
+                        level = blocks[j].level;
+                        lines = blocks[j].lines;
+                        children = blocks[j].children;
                         currentObj = null;
                 
-                        for(var i = 0， len = lines.length; i < len; ++i) {
+                        for(var i = 0, len = lines.length; i < len; ++i) {
                                 var line = lines[i];
 
                                 if(m = line.match(regex["key"])) {
                                         var key = m[1];
                                         
                                         if(key[0] == '-') {
-                                                key = key.replace(regex["item"]， "");
+                                                key = key.replace(regex["item"], "");
                                                 if (isMap) { 
                                                         isMap = false;
                                                         if (typeof(res.length) === "undefined") {
@@ -3322,7 +3322,7 @@ function YAML() {
                                         }
                                         
                                         if(typeof m[2] != "undefined") {
-                                                var value = m[2]。replace(regex["trim"]， "");
+                                                var value = m[2].replace(regex["trim"], "");
                                                 if(value[0] == '&') {
                                                         var nb = processBlock(children);
                                                         if(currentObj != null) currentObj[key] = nb;
@@ -3338,7 +3338,7 @@ function YAML() {
                                                         if(typeof reference_blocks[v] == "undefined") {
                                                                 errors.push("Reference '" + v + "' not found!");
                                                         } else {
-                                                                for(var k 在 reference_blocks[v]) {
+                                                                for(var k in reference_blocks[v]) {
                                                                         no[k] = reference_blocks[v][k];
                                                                 }
                                                                 
@@ -3395,7 +3395,7 @@ function YAML() {
                 }
                 
                 for(var j = processedBlocks.length - 1; j >= 0; --j) {
-                        blocks.splice。call(blocks, processedBlocks[j]， 1);
+                        blocks.splice.call(blocks, processedBlocks[j], 1);
                 }
 
                 return res;
@@ -3412,8 +3412,8 @@ function YAML() {
                 
                 var r = regex["comment"];
                 
-                for(var i 在 lines) {
-                        if(m = lines[i]。match(r)) {
+                for(var i in lines) {
+                        if(m = lines[i].match(r)) {
 /*                var cmt = "";
                                 if(typeof m[3] != "undefined")
                                         lines[i] = m[1];
@@ -3423,7 +3423,7 @@ function YAML() {
                                         lines[i] = "";
                                         */
                                 if(typeof m[3] !== "undefined") {
-                                        lines[i] = m[0]。substr(0, m[0]。length - m[3]。length);
+                                        lines[i] = m[0].substr(0, m[0].length - m[3].length);
                                 }
                         }
                 }
@@ -3431,14 +3431,14 @@ function YAML() {
                 return lines.join("\n");
         }
         
-        this。parse = function eval0(str) {
+        this.parse = function eval0(str) {
                 errors = [];
                 reference_blocks = [];
-                processing_time = (new Date())。getTime();
+                processing_time = (new Date()).getTime();
                 var pre = preProcess(str)
                 var doc = parser(pre);
                 var res = semanticAnalysis(doc);
-                processing_time = (new Date())。getTime() - processing_time;
+                processing_time = (new Date()).getTime() - processing_time;
                 
                 return res;
         }
@@ -3449,27 +3449,27 @@ function YAML() {
 /***********************************************************************************************/
 function Tools() {
     const filter = (src, ...regex) => {
-        const initial = [...Array(src.length)。keys()]。map(() => false);
-        return regex.reduce((a， expr) => OR(a, src.map(item => expr.test(item))), initial)
+        const initial = [...Array(src.length).keys()].map(() => false);
+        return regex.reduce((a, expr) => OR(a, src.map(item => expr.test(item))), initial)
     }
 
     const rename = {
-        replace: (src， old， 当前) => {
+        replace: (src, old, now) => {
             return src.map(item => item.replace(old, now));
-        }，
+        },
 
         delete: (src, ...args) => {
-            return src.map(item => args.reduce((当前， expr) => now.replace(expr, ''), item));
-        }，
+            return src.map(item => args.reduce((now, expr) => now.replace(expr, ''), item));
+        },
 
         trim: (src) => {
-            return src.map(item => item.trim()。replace(/[^\S\r\n]{2,}/g， ' '));
+            return src.map(item => item.trim().replace(/[^\S\r\n]{2,}/g, ' '));
         }
     }
 
     const getNodeInfo = servers => {
         const nodes = {
-            names: servers.map(s => s.split("tag=")[1])，
+            names: servers.map(s => s.split("tag=")[1]),
             types: servers.map(s => {
                 const type = s.match(/^(vmess|trojan|shadowsocks|http)=/);
                 return type ? type[1] : 'unknown';
@@ -3480,16 +3480,16 @@ function Tools() {
 
 
     return {
-        filter， rename， getNodeInfo
+        filter, rename, getNodeInfo
     }
 }
 
 function AND(...args) {
-    return args.reduce((a， b) => a.map((c， i) => b[i] && c));
+    return args.reduce((a, b) => a.map((c, i) => b[i] && c));
 }
 
 function OR(...args) {
-    return args.reduce((a， b) => a.map((c， i) => b[i] || c))
+    return args.reduce((a, b) => a.map((c, i) => b[i] || c))
 }
 
 function NOT(array) {
