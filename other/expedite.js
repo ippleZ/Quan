@@ -1,5 +1,5 @@
 // 定义正则表达式模式
-var regex1 = /https:\/\/github\.com\/(.+?)\/(.+?)\/raw\/(.+?)\/(.+)/i;
+var regex1 = /https:\/\/github\.com\/(.+?)\/(.+?)\/raw\/(.+?)\/(.+)/gi;
 var regex2 = /https:\/\/raw\.githubusercontent\.com\/(.+?)\/(.+?)\/(.+?)\/(.+)/gi;
 
 // 替换匹配项
