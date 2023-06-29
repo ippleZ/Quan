@@ -5,8 +5,6 @@ HOST,ad.12306.cn,DIRECT
 HOST,raw.gitmirror.com,DIRECT
 # PIKPAK
 HOST-SUFFIX,mypikpak.com,DIRECT
-# Sub Store
-HOST-SUFFIX,sub-store.vercel.app,DIRECT
 # ========== DIRECT 1 ==========
 
 # ========== PROXY 0 ==========
