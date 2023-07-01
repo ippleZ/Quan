@@ -17,15 +17,6 @@ if (url.indexOf('/login_by_code') != -1) {
 	}
 }
 
-obj.result = {
-	"name": "十点半睡觉",
-	"avatar": https://cdn.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Quantumult_X.png
-};
-obj.weixin = {
-	"id": "",
-	"username": "",
-	"is_bound": false
-};
 var body = JSON.stringify(obj);
 
 $done({ body });
