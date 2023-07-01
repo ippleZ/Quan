@@ -4,5 +4,6 @@ var modifiedBody = $response.body
 	.replace('<div style="position: fixed;top: 60px;right:0;z-index:999;width:250px">', '<div style="position: fixed;top: 60px;right:0;z-index:999;width:0px">')
 	.replace('position:absolute;right:0;top:0px;width:33px;height:33px;text-align:center', 'position:absolute;right:0;top:0px;width:0px;height:0px;text-align:center')
 	.replace(/(<img id="[^"]*" url="" onclick="window\.open\(this\.url\)" src="[^"]*" width=")100%(">)/g, '$10%$2'
-	.replace(/(\.clientHeight\s*===\s*)0/g, '$11');
+	.replace(/(\.clientHeight\s*===\s*)0/g, '$11')
+	.replace('<div class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom: 0">', '<div class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom: 0; display: none">');
 $done({ body: modifiedBody });
