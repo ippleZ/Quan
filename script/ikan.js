@@ -5,5 +5,6 @@ var body = $response.body
   .replace(/class="marquee_outer"/, 'class="marquee_outer" style="display:none !important"')
   .replace(/class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom\s*:\s*0"/, 'class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom:0;display:none"')
   .replace(/159140/, '990929')
-  .replace(/=== 0/, '=== 520');;
+  .replace(/08P8EC/, '990929')
+  .replace(/=== 0/, '=== 520');
 $done({ body });
