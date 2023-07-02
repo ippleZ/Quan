@@ -4,5 +4,6 @@ var body = $response.body
   .replace(/src="\$\{tj_pic\}" width="100%"/, 'src="${tj_pic}" width="0%"')
   .replace(/class="marquee_outer"/, 'class="marquee_outer" style="display:none !important"')
   .replace(/class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom\s*:\s*0"/, 'class="stui-pannel stui-pannel-bg clearfix" style="margin-bottom:0;display:none"')
-  .replace(/159140/, '990929');
+  .replace(/159140/, '990929')
+  .replace(/=== 0/, '=== 520');;
 $done({ body });
