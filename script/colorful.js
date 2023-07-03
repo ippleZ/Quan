@@ -1,14 +1,12 @@
-var obj = JSON.parse($response.body);
-let img = "";
-if (url.indexOf('/login_by_code') != -1) {
-    let obj = {
-        "data": {
-            "title": 标题,
-            "banner_type": ,
-            "url": ,
-            "avatar": https://pss.bdstatic.com/static/superman/img/logo/logo_white-d0c9fe2af5.png
-        },
-    }
-    body = JSON.stringify(obj);
+let url = $request.url;
+let obj = JSON.parse($response.body);
+if (url.indexOf('/banner') !== -1) {
+  obj.data = {
+    "title": "风场图",
+    "banner_type": "",
+    "url": "cy://button_moremap_wind",
+    "avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/banner/6467500d38c25ada83ded8ae/d95edb5f9b64da0462cc506eb70a4c40.jpg"
+  };
 }
-$done({body});
+body = JSON.stringify(obj);
+$done({ body });
