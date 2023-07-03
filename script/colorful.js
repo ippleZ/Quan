@@ -7,7 +7,7 @@ if (url.indexOf('/banner') !== -1) {
     "title": "",
     "banner_type": "",
     "url": "",
-    "avatar": "https://gitee.com/ipple/iCloud/raw/master/banner.jpg"
+    "avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/banner.jpg"
   };
   body = JSON.stringify(obj);
 }
@@ -15,10 +15,10 @@ if (url.indexOf('/banner') !== -1) {
 if (url.indexOf('/feeds') !== -1) {
   obj.data = [
     {
-      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds1.jpg",
+      "avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/feeds1.jpg",
       "visits": 520,
       "author": "十点半睡觉",
-      "author_avatar": "https://gitee.com/ipple/iCloud/raw/master/author.jpg",
+      "author_avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/author.png",
       "category_times_text": "人查看",
       "title": "十点半睡觉",
       "category_name": "文章",
@@ -27,10 +27,10 @@ if (url.indexOf('/feeds') !== -1) {
       "url": ""
     },
     {
-      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds2.jpg",
+      "avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/feeds2.jpg",
       "visits": 520,
       "author": "十点半睡觉",
-      "author_avatar": "https://gitee.com/ipple/iCloud/raw/master/author.jpg",
+      "author_avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/author.png",
       "category_times_text": "人查看",
       "title": "十点半睡觉",
       "category_name": "文章",
@@ -39,10 +39,10 @@ if (url.indexOf('/feeds') !== -1) {
       "url": ""
     },
     {
-      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds3.jpg",
+      "avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/feeds3.jpg",
       "visits": 520,
       "author": "十点半睡觉",
-      "author_avatar": "https://gitee.com/ipple/iCloud/raw/master/author.jpg",
+      "author_avatar": "https://cdn.jsdelivr.net/gh/ippleZ/iCloud/author.png",
       "category_times_text": "人查看",
       "title": "十点半睡觉",
       "category_name": "文章",
