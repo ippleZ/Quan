@@ -9,7 +9,7 @@ if (url.indexOf('/banner') !== -1) {
   };
 body = JSON.stringify(obj);
 }
-if (url.indexOf('/banner') !== -1) {
+if (url.indexOf('/feeds') !== -1) {
   obj.data = {
     "title": "风场图",
     "banner_type": "",
