@@ -7,7 +7,7 @@ if (url.indexOf('/banner') !== -1) {
     "title": "",
     "banner_type": "",
     "url": "",
-    "avatar": "https://gitee.com/ipple/iCloud/raw/master/author.jpg"
+    "avatar": "https://gitee.com/ipple/iCloud/raw/master/banner.jpg"
   };
   body = JSON.stringify(obj);
 }
