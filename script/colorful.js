@@ -15,7 +15,7 @@ if (url.indexOf('/banner') !== -1) {
 if (url.indexOf('/feeds') !== -1) {
   obj.data = [
     {
-      "avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/feed/64a29c3b949dbe2fbe0fe6b1/0d47eadedfe4dfdff327a7efab55417e.png",
+      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds1.jpg",
       "visits": 78,
       "author": "妖猫爱睡觉",
       "author_avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/author/64a180e9627638f8ec7c3eff/a284273d1d0f8d2bdec03ed564199820.png",
