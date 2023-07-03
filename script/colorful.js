@@ -2,7 +2,7 @@ let body = $response.body;
 let url = $request.url;
 let obj = JSON.parse(body);
 
-if (url.indexOf('/banner') !== -1) {
+if (url.indexOf('/banners') !== -1) {
   obj.data = [
     {
       "title" : "",
