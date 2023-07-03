@@ -23,11 +23,11 @@ if (url.indexOf('/feeds') !== -1) {
       "title": "钓黄鳝晚上往往比白天更好钓什么原因",
       "category_name": "文章",
       "feed_type": "article",
-      "feed_id": "64a29c3b949dbe2fbe0fe6b1",
-      "url": "https://cdn-w.caiyunapp.com/p/app/operation/prod/article/64a27b07627638f8ec7c3f0d/index.html"
+      "feed_id": "feeds1",
+      "url": ""
     },
     {
-      "avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/feed/64a29c3b949dbe2fbe0fe6b1/0d47eadedfe4dfdff327a7efab55417e.png",
+      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds2.jpg",
       "visits": 520,
       "author": "十点半睡觉",
       "author_avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/author/64a180e9627638f8ec7c3eff/a284273d1d0f8d2bdec03ed564199820.png",
@@ -35,11 +35,11 @@ if (url.indexOf('/feeds') !== -1) {
       "title": "钓黄鳝晚上往往比白天更好钓什么原因",
       "category_name": "文章",
       "feed_type": "article",
-      "feed_id": "64a29c3b949dbe2fbe0fe6b1",
-      "url": "https://cdn-w.caiyunapp.com/p/app/operation/prod/article/64a27b07627638f8ec7c3f0d/index.html"
+      "feed_id": "feeds1",
+      "url": ""
     },
     {
-      "avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/feed/64a29c3b949dbe2fbe0fe6b1/0d47eadedfe4dfdff327a7efab55417e.png",
+      "avatar": "https://gitee.com/ipple/iCloud/raw/master/feeds3.jpg",
       "visits": 520,
       "author": "十点半睡觉",
       "author_avatar": "https://cdn-w.caiyunapp.com/p/app/operation/prod/author/64a180e9627638f8ec7c3eff/a284273d1d0f8d2bdec03ed564199820.png",
@@ -47,8 +47,8 @@ if (url.indexOf('/feeds') !== -1) {
       "title": "钓黄鳝晚上往往比白天更好钓什么原因",
       "category_name": "文章",
       "feed_type": "article",
-      "feed_id": "64a29c3b949dbe2fbe0fe6b1",
-      "url": "https://cdn-w.caiyunapp.com/p/app/operation/prod/article/64a27b07627638f8ec7c3f0d/index.html"
+      "feed_id": "feeds1",
+      "url": ""
     }
   ];
   body = JSON.stringify(obj);
