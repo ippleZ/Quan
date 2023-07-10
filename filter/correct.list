@@ -13,4 +13,4 @@ HOST-SUFFIX,mypikpak.com,DIRECT
 # ========== REJECT 0 ==========
 # PIKPAK
 HOST,access.mypikpak.com,REJECT
-# ========== REJECT 0 ==========
+# ========== REJECT 1 ==========
