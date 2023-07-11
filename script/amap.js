@@ -77,7 +77,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   }
 } else if (url.includes("/promotion-web/resource")) {
   // 打车页面
-  let item = [
+  const item = [
     "alpha", // 出行优惠套餐
     "banner",
     "bravo", // 第三方推广 喜马拉雅月卡
