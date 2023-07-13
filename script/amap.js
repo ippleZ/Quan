@@ -303,7 +303,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "poster_banner",
     // "poi_intercept",
     "portal_entrance", // 高德旅游版块 引流到旅游频道
-    // "question_answer_card", // 问问 地点附近的热门问题
+    "question_answer_card", // 问问 地点附近的热门问题
     "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
