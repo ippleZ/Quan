@@ -7,9 +7,6 @@ HOST,raw.gitmirror.com,DIRECT
 HOST-SUFFIX,mypikpak.com,DIRECT
 # ========== DIRECT 1 ==========
 
-# ========== PROXY 0 ==========
-# ========== PROXY 1 ==========
-
 # ========== REJECT 0 ==========
 # PIKPAK
 HOST,access.mypikpak.com,REJECT
