@@ -1,5 +1,6 @@
-var obj = JSON.parse($response.body);
-var url = $request.url;
+const url = $request.url;
+if (!$response.body) $done({});
+let obj = JSON.parse($response.body);
 
 if (url.includes('/vip_info')) {
     obj.vip = {
