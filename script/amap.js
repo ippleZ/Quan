@@ -1,5 +1,3 @@
-// 2023-08-07 16:15
-
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
