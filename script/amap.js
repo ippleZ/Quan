@@ -298,7 +298,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "surround_selloffice",
     // "traffic", // 交通出行 地铁站 公交站 停车场
     "uploadBar",
-    "uploadbar", // 上传照片
+    "upload_bar", // 上传照片
     "verification" // 商家已入驻
     // "video",
   ];
