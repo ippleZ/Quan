@@ -195,8 +195,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    "galleryinfo", // 现场照片
-    "galleryInfo",
+    "galleryInfo", // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
@@ -228,7 +227,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "membership", // 高德菲住卡 会员项目
     "movie_info", // 优惠购票 景点宣传片
     "multi_page_anchor", // 二级导航菜单 门票 评论 推荐
-    "navbarMore", // 右上角三点
+    // "navbarMore", // 右上角三点
     "nearbyRecommendModule", // 周边推荐
     "nearby_house",
     "nearby_new_house_estate",
