@@ -205,7 +205,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    "gallery_info", // 现场照片
+    "galleryInfo", // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
