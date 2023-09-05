@@ -2,7 +2,15 @@ const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if (url.includes("/faas/amap-navigation/main-page")) {
+if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
+  // 路线规划页
+  if (obj?.data?.children?.length > 0) {
+    // 有schema参数的为推广
+    obj.data.children = obj.data.children.filter(
+      (i) => !i?.hasOwnProperty("schema")
+    );
+  }
+} else if (url.includes("/faas/amap-navigation/main-page")) {
   // 首页底部卡片
   if (obj?.data?.cardList?.length > 0) {
     obj.data.cardList = obj.data.cardList.filter(
@@ -18,11 +26,12 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     );
   }
 } else if (url.includes("/perception/drive/routePlan")) {
+  // 路线规划页
   if (obj?.data?.front_end) {
     const item = ["global_guide_data", "route_search"];
-    item.forEach((i) => {
+    for (let i of item) {
       delete obj.data.front_end[i];
-    });
+    }
   }
 } else if (url.includes("/promotion-web/resource")) {
   // 打车页面
@@ -39,11 +48,12 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "tips"
   ];
   if (obj?.data) {
-    item.forEach((i) => {
+    for (let i of item) {
       delete obj.data[i];
-    });
+    }
   }
 } else if (url.includes("/sharedtrip/taxi/order_detail_car_tips")) {
+  // 打车页
   if (obj.data?.carTips?.data?.popupInfo) {
     delete obj.data.carTips.data.popupInfo;
   }
@@ -76,6 +86,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "_user_profile_",
     "air_card",
     "amapCoin",
+    // "amap_basemap_config", // 基本库
     "aos_feedback",
     "apple_location_log_collect",
     "collect",
@@ -204,7 +215,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    "galleryInfo", // 现场照片
+    "galleryInfo"， // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
@@ -264,7 +275,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "poster_banner",
     // "poi_intercept",
     "portal_entrance", // 高德旅游版块 引流到旅游频道
-    "question_answer_card", // 问问 地点附近的热门问题
+    "question_answer_card"， // 问问 地点附近的热门问题
     "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
@@ -316,11 +327,12 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "waterFallFeedTitle" // 更多好去处
   ];
   if (obj?.data?.modules) {
-    item.forEach((i) => {
+    for (let i of item) {
       delete obj.data.modules[i];
-    });
+    }
   }
 } else if (url.includes("/shield/search_poi/homepage")) {
+  // 首页 搜索框历史记录 推广标签
   if (obj?.history_tags) {
     delete obj.history_tags;
   }
@@ -469,7 +481,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   if (obj?.data?.coupon) {
     delete obj.data.coupon;
   }
-  const bar = [
+  const item = [
     "belt",
     "common_float_bar",
     "common_image_banner",
@@ -483,9 +495,9 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "tips_top_banner"
   ];
   if (obj?.data?.modules) {
-    bar.forEach((i) => {
+    for (let i of item) {
       delete obj.data.modules[i];
-    });
+    }
   }
 } else if (url.includes("/valueadded/alimama/splash_screen")) {
   // 开屏广告
