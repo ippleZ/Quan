@@ -1,5 +1,3 @@
-// 2023-09-05 22:45
-
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
@@ -19,7 +17,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
       (i) =>
         i.dataKey === "ContinueNavigationCard" || // 继续导航
         i.dataKey === "FrequentLocation" || // 常去地点
-        i.dataKey === "LoginCard" // 登陆卡片
+        i.dataKey === "LoginCard" // 登录卡片
     );
   }
   if (obj?.data?.mapBizList?.length > 0) {
@@ -217,7 +215,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    "gallery_info", // 现场照片
+    "galleryInfo", // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
