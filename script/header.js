@@ -1,5 +1,3 @@
-// 2023-08-24 12:45
-
 const url = $request.url;
 const header = $request.headers;
 const isQuanX = typeof $task !== "undefined";
