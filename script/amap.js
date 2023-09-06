@@ -17,7 +17,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
       (i) =>
         i.dataKey === "ContinueNavigationCard" || // 继续导航
         i.dataKey === "FrequentLocation" || // 常去地点
-        i.dataKey === "LoginCard" // 登陆卡片
+        i.dataKey === "LoginCard" // 登录卡片
     );
   }
   if (obj?.data?.mapBizList?.length > 0) {
@@ -215,7 +215,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    // "gallery_info", // 现场照片
+    "gallery_info"， // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
@@ -275,7 +275,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
     "poster_banner",
     // "poi_intercept",
     "portal_entrance", // 高德旅游版块 引流到旅游频道
-    // "question_answer_card", // 问问 地点附近的热门问题
+    "question_answer_card"， // 问问 地点附近的热门问题
     "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
