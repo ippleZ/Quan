@@ -1,5 +1,5 @@
-var url = $request.url;
-var body = $response.body;
+const url = $request.url;
+let body = $response.body;
 
 if (url.includes("waipian")) {
   body = body.replace(/<head>/, '<head><link rel="stylesheet" href="https://raw.gitmirror.com/ippleZ/Quan/master/style/waipian.css" type="text/css">');
