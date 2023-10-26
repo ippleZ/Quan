@@ -1,4 +1,4 @@
-var obj = JSON.parse($response.body);
+let obj = JSON.parse($response.body);
 
 obj = {
   "request_date": "2022-08-06T02:30:14Z",
