@@ -6,9 +6,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
   // 路线规划页
   if (obj?.data?.children?.length > 0) {
     // 有schema参数的为推广
-    obj.data.children = obj.data.children.filter(
-      (i) => !i?.hasOwnProperty("schema")
-    );
+    obj.data.children = obj.data.children.filter((i) => !i?.hasOwnProperty("schema"));
   }
 } else if (url.includes("/faas/amap-navigation/main-page")) {
   // 首页底部卡片
@@ -60,9 +58,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
 } else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
   // 我的页面
   if (obj?.data?.cardList?.length > 0) {
-    obj.data.cardList = obj.data.cardList.filter(
-      (i) => i.dataKey === "MyOrderCard"
-    );
+    obj.data.cardList = obj.data.cardList.filter((i) => i.dataKey === "MyOrderCard");
   }
   if (obj?.data?.tipData) {
     delete obj.data.tipData;
@@ -178,6 +174,18 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
       obj.data[i] = { status: 1, version: "", value: "" };
     }
   }
+  /**
+   * if (obj?.data?.amap_basemap_config) {
+   * let basemap = obj.data.amap_basemap_config;
+   * if (basemap?.status === 1 && basemap?.value !== "") {
+   * let objVal = JSON.parse(basemap.value);
+   * if (objVal?.v13Switch) {
+   * objVal.v13Switch = 0;
+   * }
+   * basemap.value = JSON.stringify(objVal);
+   * }
+   * }
+   */
 } else if (url.includes("/shield/search/common/coupon/info")) {
   if (obj?.data) {
     obj.data = {};
@@ -347,15 +355,17 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
       delete obj.data.modules[i];
     }
   }
+} else if (url.includes("/shield/search_business/process/marketingOperationStructured")) {
+  // 详情页 顶部优惠横幅
+  if (obj?.data?.tipsOperationLocation) {
+    delete obj.data.tipsOperationLocation;
+  }
 } else if (url.includes("/shield/search_poi/homepage")) {
   // 首页 搜索框历史记录 推广标签
   if (obj?.history_tags) {
     delete obj.history_tags;
   }
-} else if (
-  url.includes("/shield/search_poi/search/sp") ||
-  url.includes("/shield/search_poi/mps")
-) {
+} else if (url.includes("/shield/search_poi/search/sp") || url.includes("/shield/search_poi/mps")) {
   if (obj?.data?.list_data) {
     let list = obj.data.list_data.content[0];
     // 详情页 底部 房产推广
@@ -386,22 +396,13 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
       delete list.bottom.bottombar_button.hotel;
     }
     // 搜索页 顶部卡片
-    if (
-      list?.card?.card_id === "SearchCardBrand" &&
-      list?.item_type === "brandAdCard"
-    ) {
+    if (list?.card?.card_id === "SearchCardBrand" && list?.item_type === "brandAdCard") {
       delete list.card;
     }
-    if (
-      list?.card?.card_id === "NearbyGroupBuy" &&
-      list?.item_type === "toplist"
-    ) {
+    if (list?.card?.card_id === "NearbyGroupBuy" && list?.item_type === "toplist") {
       delete list.card;
     }
-    if (
-      list?.card?.card_id === "ImageBanner" &&
-      list?.item_type === "ImageBanner"
-    ) {
+    if (list?.card?.card_id === "ImageBanner" && list?.item_type === "ImageBanner") {
       delete list.card;
     }
   } else if (obj?.data?.district?.poi_list) {
@@ -447,6 +448,14 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
         delete list.bottom.bottombar_button.hotel;
       }
     }
+    if (obj?.data?.modules?.list_data?.data) {
+      // 搜索列表
+      let list = obj.data.modules.list_data.data;
+      if (list?.content?.length > 0) {
+        // brandAdCard广告卡片 toplist_al人气榜单 高德指南
+        list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
+      }
+    }
   }
 } else if (url.includes("/shield/search_poi/sug")) {
   if (obj?.tip_list) {
@@ -456,12 +465,7 @@ if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
         if (
           ["12"].includes(item?.tip?.datatype_spec) ||
           ["ad", "poi_ad", "toplist"].includes(item?.tip?.result_type) ||
-          [
-            "ad",
-            "exct_query_sug_merge_theme",
-            "query_sug_merge_theme",
-            "sp"
-          ].includes(item?.tip?.task_tag)
+          ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"].includes(item?.tip?.task_tag)
         ) {
           continue;
         } else {
