@@ -14,16 +14,6 @@ if (url.indexOf(/users/tools) != -1){
   body = JSON.stringify(json);
 }
 
-//购买页面的SVIP
-if (url.indexOf(/users/vip/info) != -1){
-   body = body.replace(/\{.+\}/g, '\{  "status" : "normal",  "identity" : "svip",  "icon" : "https://gw.alicdn.com/imgextra/i3/O1CN01iPKCuZ1urjDgiry5c_!!6000000006091-2-tps-60-60.png",  "level" : "8t",  "vipList" : [    {      "code" : "svip.8t",      "promotedAt" : 1691769901,      "expire" : 4092599349,      "name" : "超级会员"    }  ],  "mediumIcon" : "https://gw.alicdn.com/imgextra/i4/O1CN01Mk916Y1c99aVBrgxM_!!6000000003557-2-tps-222-60.png"  }');
-}
-
-//我的页面SVIP
-if (url.indexOf(/users/me/vip/info) != -1){
- body = body.replace(/\{.+\}/g, '\{  "description" : "有效期至2099-09-09",  "titleNotice" : "叮当猫の分享频道",  "activityAction" : "smartdrive://webview?url=https%3A%2F%2Fpages.aliyundrive.com%2Fmobile-page%2Fweb%2Fmembership.html%3FdisableNav%3DYES%26renew%3DYES",  "rightButtonText" : "SVIP",  "activityText" : "解锁部分功能，不完全解锁",  "identity" : "svip",  "backgroundImage" : "https://gw.alicdn.com/imgextra/i4/O1CN01cwAW0u1GPG2oa6WW7_!!6000000000614-2-tps-654-212.png",  "titleImage" : "https://gw.alicdn.com/imgextra/i2/O1CN01snE6rA1pVg95HyRBl_!!6000000005366-2-tps-214-49.png",  "backgroudImage" : null  }');
-}
-
 if (url.indexOf(/user/get) != -1){
   body = body.replace(/\"vip_identity":".*?"/g, '\"vip_identity":"svip"');
 }
