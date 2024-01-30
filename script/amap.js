@@ -244,7 +244,7 @@ if (url.includes("/boss/car/order/content_info")) {
     // "floor_guide_second", // 楼层导览
     // "footer_logo",
     // "foreclosurehouse",
-    "gallery_info"， // 现场照片
+    "gallery_info", // 现场照片
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
@@ -304,7 +304,7 @@ if (url.includes("/boss/car/order/content_info")) {
     "poster_banner",
     // "poi_intercept",
     "portal_entrance", // 高德旅游版块 引流到旅游频道
-    "question_answer_card"， // 问问 地点附近的热门问题
+    "question_answer_card", // 问问 地点附近的热门问题
     "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
