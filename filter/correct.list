@@ -11,3 +11,8 @@ HOST-SUFFIX,mypikpak.com,DIRECT
 # PIKPAK
 HOST,access.mypikpak.com,REJECT
 # ========== REJECT 1 ==========
+
+# ========== PROXY 0 ===========
+# PIKPAK
+HOST-SUFFIX,coze.com,PROXY
+# ========== PROXY 1 ===========
