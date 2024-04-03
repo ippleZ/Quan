@@ -1,7 +1,7 @@
 # ========== DIRECT 0 ==========
 # 12306
 HOST,ad.12306.cn,DIRECT
-# GITMIRROR
+# Gitmirror
 HOST,raw.gitmirror.com,DIRECT
 # PIKPAK
 HOST-SUFFIX,mypikpak.com,DIRECT
@@ -13,7 +13,8 @@ HOST,access.mypikpak.com,REJECT
 # ========== REJECT 1 ==========
 
 # ========== PROXY 0 ===========
-# PIKPAK
+# COZE
 HOST-SUFFIX,coze.com,PROXY
+# 机场
 DOMAIN-KEYWORD,sanfen,PROXY
 # ========== PROXY 1 ===========
