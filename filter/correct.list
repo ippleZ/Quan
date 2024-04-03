@@ -15,4 +15,5 @@ HOST,access.mypikpak.com,REJECT
 # ========== PROXY 0 ===========
 # PIKPAK
 HOST-SUFFIX,coze.com,PROXY
+DOMAIN-KEYWORD,sanfen,PROXY
 # ========== PROXY 1 ===========
