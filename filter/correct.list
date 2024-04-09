@@ -1,6 +1,5 @@
 # ========== DIRECT 0 ==========
 HOST,ad.12306.cn,DIRECT
-HOST,raw.gitmirror.com,DIRECT
 HOST-SUFFIX,mypikpak.com,DIRECT
 # ========== DIRECT 1 ==========
 
