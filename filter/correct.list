@@ -5,6 +5,8 @@ HOST-SUFFIX,mypikpak.com,DIRECT
 
 # ========== REJECT 0 ==========
 HOST,access.mypikpak.com,REJECT
+HOST,mall.bilibili.com,REJECT 
+HOST,passport.bilibili.com,REJECT
 # ========== REJECT 1 ==========
 
 # ========== PROXY 0 ===========
