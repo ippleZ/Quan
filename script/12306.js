@@ -23,9 +23,9 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   ];
   if (isQuanX) {
     if (list12306?.includes(headopt)) {
-      $done();
-    } else {
       $done({ status: "HTTP/1.1 404 Not Found" });
+    } else {
+      $done({});
     }
   } else {
     if (list12306?.includes(headopt)) {
@@ -34,6 +34,4 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
       $done({});
     }
   }
-} else {
-  $done({});
 }
