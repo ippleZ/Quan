@@ -4,6 +4,8 @@ const headopt = header["Operation-Type"] || header["operation-type"];
 const ua = header["User-Agent"] || header["user-agent"];
 const isQuanX = typeof $task !== "undefined";
 
+let body = "";
+
 if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   // 12306页面内容
   const list12306 = [
@@ -22,6 +24,7 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     // "com.cars.otsmobile.newHomePageRefresh",
     // "com.cars.otsmobile.travelPage.initData", // 出行服务
   ];
+
   if (isQuanX) {
     if (list12306?.includes(headopt)) {
       $done({ status: "HTTP/1.1 404 Not Found" });
@@ -36,5 +39,17 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     }
   }
 } else {
-  $done({});
+  if (obj.placementNo === "0007") {
+    body = '{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
+  } else if (obj.placementNo === "G0054") {
+    body = '{"code":"00","materialsList":[]}';
+  } else {
+    body = '{"code":"00","message":"无广告返回"}';
+  }
+
+  if (isQuanX) {
+    $done({ body });
+  } else {
+    $done({ response: { body } });
+  }
 }
