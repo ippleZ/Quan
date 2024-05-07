@@ -1,10 +1,8 @@
 const url = $request.url;
 const header = $request.headers;
 const headopt = header["Operation-Type"] || header["operation-type"];
+const ua = header["User-Agent"] || header["user-agent"];
 const isQuanX = typeof $task !== "undefined";
-
-let body = "";
-let obj = JSON.parse($request.body);
 
 if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   // 12306页面内容
@@ -24,12 +22,11 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     // "com.cars.otsmobile.newHomePageRefresh",
     // "com.cars.otsmobile.travelPage.initData", // 出行服务
   ];
-
   if (isQuanX) {
     if (list12306?.includes(headopt)) {
-      $done({ status: "HTTP/1.1 404 Not Found" });
+      $done();
     } else {
-      $done({});
+      $done({ status: "HTTP/1.1 404 Not Found" });
     }
   } else {
     if (list12306?.includes(headopt)) {
@@ -38,4 +35,6 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
       $done({});
     }
   }
+} else {
+  $done({});
 }
