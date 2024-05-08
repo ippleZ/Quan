@@ -1,9 +1,9 @@
 const url = $request.url;
-let body = "";
-let obj = JSON.parse($request.body);
 const isQuanX = typeof $task !== "undefined";
 
 if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
+	let body = "";
+let obj = JSON.parse($request.body);
 	if (obj.placementNo === "0007") {
 		body =
 			'{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
