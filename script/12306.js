@@ -2,7 +2,8 @@ const url = $request.url;
 const header = $request.headers;
 const headopt = header["Operation-Type"] || header["operation-type"];
 const isQuanX = typeof $task !== "undefined";
-
+const body = "";
+const obj = JSON.parse($request.body);
 if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   // 12306页面内容
   const list12306 = [
@@ -34,4 +35,25 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
       $done({});
     }
   }
+} else if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
+	if (obj.placementNo === "0007") {
+		body =
+			'{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
+	} else if (obj.placementNo === "G0054") {
+		body = '{"code":"00","materialsList":[]}';
+	} else {
+		body = '{"code":"00","message":"无广告返回"}';
+	}
+
+	if (isQuanX) {
+		$done({
+			body
+		});
+	} else {
+		$done({
+			response: {
+				body
+			}
+		});
+	}
 }
