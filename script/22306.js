@@ -3,19 +3,25 @@ let body = "";
 let obj = JSON.parse($request.body);
 const isQuanX = typeof $task !== "undefined";
 
-if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
-if (obj.placementNo === "0007") {
-  body =
-    '{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
-} else if (obj.placementNo === "G0054") {
-  body = '{"code":"00","materialsList":[]}';
-} else {
-  body = '{"code":"00","message":"无广告返回"}';
-}
+if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
+	if (obj.placementNo === "0007") {
+		body =
+			'{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
+	} else if (obj.placementNo === "G0054") {
+		body = '{"code":"00","materialsList":[]}';
+	} else {
+		body = '{"code":"00","message":"无广告返回"}';
+	}
 
-if (isQuanX) {
-  $done({ body });
-} else {
-  $done({ response: { body } });
-}
+	if (isQuanX) {
+		$done({
+			body
+		});
+	} else {
+		$done({
+			response: {
+				body
+			}
+		});
+	}
 }
