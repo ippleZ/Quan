@@ -1,7 +1,9 @@
+const url = $request.url;
 let body = "";
 let obj = JSON.parse($request.body);
 const isQuanX = typeof $task !== "undefined";
 
+if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
 if (obj.placementNo === "0007") {
   body =
     '{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
@@ -15,4 +17,5 @@ if (isQuanX) {
   $done({ body });
 } else {
   $done({ response: { body } });
+}
 }
