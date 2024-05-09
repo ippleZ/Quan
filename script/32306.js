@@ -22,7 +22,7 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   ];
 
   if (list12306?.includes(headopt)) {
-    $done({ status: "HTTP/1.1 200 OK" });
+    $done({ status: "HTTP/1.1 403 Forbidden" });
   } else {
     $done({});
   }
