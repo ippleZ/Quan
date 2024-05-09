@@ -26,3 +26,4 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     } else {
       $done({});
     }
+}
