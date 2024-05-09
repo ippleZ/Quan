@@ -1,5 +1,4 @@
 const url = $request.url;
-const isQuanX = typeof $task !== "undefined";
 let body = "";
 let obj = JSON.parse($request.body);
 if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
@@ -11,16 +10,5 @@ if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
   } else {
     body = '{"code":"00","message":"无广告返回"}';
   }
-
-  if (isQuanX) {
-    $done({
-      body
-    });
-  } else {
-    $done({
-      response: {
-        body
-      }
-    });
-  }
+    $done({body});
 }
