@@ -2,7 +2,7 @@ const url = $request.url;
 const header = $request.headers;
 const headopt = header["Operation-Type"] || header["operation-type"];
 
-if(url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
+if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   // 12306页面内容
   const list12306 = [
     // "com.cars.otsmobile.bangbangSafe.deciveInfo", // 设备序列号
@@ -21,25 +21,21 @@ if(url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     // "com.cars.otsmobile.travelPage.initData", // 出行服务
   ];
 
-  if(list12306 ? .includes(headopt)) {
-    $done({
-      status: "HTTP/1.1 304 Not Modified"
-    });
+  if (list12306?.includes(headopt)) {
+    $done({ status: "HTTP/1.1 204 No Content" });
   } else {
     $done({});
   }
-} else if(url.includes("/ad.12306.cn/ad/ser/getAdList")) {
+} else if (url.includes("/ad.12306.cn/ad/ser/getAdList")) {
   let body = "";
   let obj = JSON.parse($request.body);
-  if(obj.placementNo === "0007") {
+  if (obj.placementNo === "0007") {
     body =
       '{"code":"00","materialsList":[{"billMaterialsId":"255","filePath":"h","creativeType":1}],"advertParam":{"skipTime":1}}';
-  } else if(obj.placementNo === "G0054") {
+  } else if (obj.placementNo === "G0054") {
     body = '{"code":"00","materialsList":[]}';
   } else {
     body = '{"code":"00","message":"无广告返回"}';
   }
-  $done({
-    body
-  });
+  $done({ body });
 }
