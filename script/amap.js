@@ -1,11 +1,8 @@
 const url = $request.url;
-const ua = header["User-Agent"] || header["user-agent"];
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if (url.includes("/amdc/mobileDispatch")) {
-    $done({ status: "HTTP/1.1 404 Not Found" });
-}else if (url.includes("/boss/car/order/content_info")) {
+if (url.includes("/boss/car/order/content_info")) {
   // 打车页面
   if (obj?.data?.lubanData?.skin?.dataList?.length > 0) {
     // oss营销皮肤
