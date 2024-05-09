@@ -22,7 +22,7 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
     // "com.cars.otsmobile.travelPage.initData", // 出行服务
   ];
     if (list12306?.includes(headopt)) {
-      $done({ status: "HTTP/1.1 404 Not Found" });
+      $done({ status: "HTTP/1.1 200 OK" });
     } else {
       $done({});
     }
