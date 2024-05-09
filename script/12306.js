@@ -23,7 +23,7 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
 
 	if (list12306 ? .includes(headopt)) {
 		$done({
-			status: "HTTP/1.1 304 Not Modified"
+			status: "HTTP/1.1 502 Bad Gateway"
 		});
 	} else {
 		$done({});
