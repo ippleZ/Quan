@@ -22,9 +22,7 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   ];
 
   if (list12306 ? .includes(headopt)) {
-    $done({
-      status: "HTTP/1.1 204 No Content"
-    });
+    $done({ status: "HTTP/1.1 204 No Content" });
   } else {
     $done({});
   }
@@ -38,7 +36,5 @@ if (url.includes("/mobile.12306.cn/otsmobile/app/mgs/")) {
   } else {
     body = '{"code":"00","message":"无广告返回"}';
   }
-  $done({
-    body
-  });
+  $done({ body });
 }
