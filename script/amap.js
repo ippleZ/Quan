@@ -1,83 +1,83 @@
 const url = $request.url;
-if(!$response.body) $done({});
+if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if(url.includes("/boss/car/order/content_info")) {
+if (url.includes("/boss/car/order/content_info")) {
   // 打车页面
-  if(obj ? .data ? .lubanData ? .skin ? .dataList ? .length > 0) {
+  if (obj?.data?.lubanData?.skin?.dataList?.length > 0) {
     // oss营销皮肤
     obj.data.lubanData.skin.dataList = [];
   }
-} else if(url.includes("/boss/order_web/friendly_information")) {
+} else if (url.includes("/boss/order_web/friendly_information")) {
   // 打车页面
   const items = ["banners", "carouselTips", "integratedBanners", "integratedTips", "skins", "skinAndTips", "tips"];
-  if(obj ? .data ? . ["105"]) {
-    for(let i of items) {
+  if (obj?.data?.["105"]) {
+    for (let i of items) {
       delete obj.data["105"][i];
     }
   }
-} else if(url.includes("/faas/amap-navigation/card-service-plan-home")) {
+} else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
   // 路线规划页
-  if(obj ? .data ? .children ? .length > 0) {
+  if (obj?.data?.children?.length > 0) {
     // 有schema参数的为推广
     obj.data.children = obj.data.children.filter((i) => !i.hasOwnProperty("schema"));
   }
-} else if(url.includes("/faas/amap-navigation/main-page")) {
+} else if (url.includes("/faas/amap-navigation/main-page")) {
   // 首页底部卡片
-  if(obj ? .data ? .cardList ? .length > 0) {
+  if (obj?.data?.cardList?.length > 0) {
     obj.data.cardList = obj.data.cardList.filter(
       (i) =>
-      i ? .dataKey === "ContinueNavigationCard" || // 继续导航
-      i ? .dataKey === "FrequentLocation" || // 常去地点
-      i ? .dataKey === "LoginCard" // 登陆卡片
+        i?.dataKey === "ContinueNavigationCard" || // 继续导航
+        i?.dataKey === "FrequentLocation" || // 常去地点
+        i?.dataKey === "LoginCard" // 登陆卡片
     );
   }
-  if(obj ? .data ? .mapBizList ? .length > 0) {
+  if (obj?.data?.mapBizList?.length > 0) {
     obj.data.mapBizList = obj.data.mapBizList.filter(
-      (i) => i ? .dataKey === "FindCarVirtualCard" // 显示关联车辆位置
+      (i) => i?.dataKey === "FindCarVirtualCard" // 显示关联车辆位置
     );
   }
-} else if(url.includes("/perception/drive/routeInfo")) {
+} else if (url.includes("/perception/drive/routeInfo")) {
   // 导航详情页
-  if(obj ? .data ? .tbt ? .event ? .length > 0) {
-    obj.data.tbt.event = obj.data.tbt.event.filter((i) => !/ads-\d+/.test(i ? .dynamic_id_s));
+  if (obj?.data?.tbt?.event?.length > 0) {
+    obj.data.tbt.event = obj.data.tbt.event.filter((i) => !/ads-\d+/.test(i?.dynamic_id_s));
   }
-  if(obj ? .data ? .front_end) {
-    if(obj ? .data ? .front_end ? .guide_tips ? .length > 0) {
+  if (obj?.data?.front_end) {
+    if (obj?.data?.front_end?.guide_tips?.length > 0) {
       // 音乐底栏
-      obj.data.front_end.guide_tips = obj.data.front_end.guide_tips.filter((i) => i ? .biz_type !== "music");
+      obj.data.front_end.guide_tips = obj.data.front_end.guide_tips.filter((i) => i?.biz_type !== "music");
     }
-    if(obj ? .data ? .front_end ? .assistant) {
+    if (obj?.data?.front_end?.assistant) {
       // 助手皮肤
       delete obj.data.front_end.assistant;
     }
-    if(obj ? .data ? .front_end ? .download ? .length > 0) {
+    if (obj?.data?.front_end?.download?.length > 0) {
       // 导航插播语音广告
-      obj.data.front_end.download = obj.data.front_end.download.filter((i) => !/ads-\d+/.test(i ? .dynamic_id_s));
+      obj.data.front_end.download = obj.data.front_end.download.filter((i) => !/ads-\d+/.test(i?.dynamic_id_s));
     }
   }
-} else if(url.includes("/perception/drive/routePlan")) {
+} else if (url.includes("/perception/drive/routePlan")) {
   // 路线规划页
-  if(obj ? .data ? .front_end) {
+  if (obj?.data?.front_end) {
     const items = [
       "assistant", // 左上角悬浮动图
       "global_guide_data",
       "route_search",
       "start_button_tips" // 开始导航 悬浮提示 全国车道级
     ];
-    for(let i of items) {
+    for (let i of items) {
       delete obj.data.front_end[i];
     }
   }
-  if(obj ? .data ? .tbt ? .event ? .length > 0) {
+  if (obj?.data?.tbt?.event?.length > 0) {
     // 导航插播语音广告
-    obj.data.tbt.event = obj.data.tbt.event.filter((i) => !/ads-\d+/.test(i ? .dynamic_id_s));
+    obj.data.tbt.event = obj.data.tbt.event.filter((i) => !/ads-\d+/.test(i?.dynamic_id_s));
   }
-  if(obj ? .data ? .front_end ? .download ? .length > 0) {
+  if (obj?.data?.front_end?.download?.length > 0) {
     // 导航插播语音广告
-    obj.data.front_end.download = obj.data.front_end.download.filter((i) => !/ads-\d+/.test(i ? .dynamic_id_s));
+    obj.data.front_end.download = obj.data.front_end.download.filter((i) => !/ads-\d+/.test(i?.dynamic_id_s));
   }
-} else if(url.includes("/promotion-web/resource")) {
+} else if (url.includes("/promotion-web/resource")) {
   // 打车页面
   const items = [
     "alpha", // 出行优惠套餐
@@ -91,22 +91,22 @@ if(url.includes("/boss/car/order/content_info")) {
     "push", // 顶部通知 发单立享优惠
     "tips"
   ];
-  if(obj ? .data) {
-    for(let i of items) {
+  if (obj?.data) {
+    for (let i of items) {
       delete obj.data[i];
     }
   }
-} else if(url.includes("/sharedtrip/taxi/order_detail_car_tips")) {
+} else if (url.includes("/sharedtrip/taxi/order_detail_car_tips")) {
   // 打车页
-  if(obj.data ? .carTips ? .data ? .popupInfo) {
+  if (obj.data?.carTips?.data?.popupInfo) {
     delete obj.data.carTips.data.popupInfo;
   }
-} else if(url.includes("/shield/dsp/profile/index/nodefaasv3")) {
+} else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
   // 我的页面
-  if(obj ? .data ? .cardList ? .length > 0) {
-    obj.data.cardList = obj.data.cardList.filter((i) => i ? .dataKey === "MyOrderCard");
+  if (obj?.data?.cardList?.length > 0) {
+    obj.data.cardList = obj.data.cardList.filter((i) => i?.dataKey === "MyOrderCard");
   }
-  if(obj ? .data ? .tipData) {
+  if (obj?.data?.tipData) {
     delete obj.data.tipData;
   }
   // 足迹
@@ -114,10 +114,10 @@ if(url.includes("/boss/car/order/content_info")) {
   //   delete obj.data.footPrintV2;
   // }
   // 成就勋章 lv1见习达人
-  if(obj ? .data ? .memberInfo) {
+  if (obj?.data?.memberInfo) {
     delete obj.data.memberInfo;
   }
-} else if(url.includes("/shield/frogserver/aocs")) {
+} else if (url.includes("/shield/frogserver/aocs")) {
   // 整体图层
   const items = [
     // "ARWalkNavi", // AR导航
@@ -215,30 +215,26 @@ if(url.includes("/boss/car/order/content_info")) {
     "vip"
     // "weather_restrict_config",
   ];
-  if(obj ? .data) {
-    for(let i of items) {
-      if(obj ? .data ? . [i]) {
-        obj.data[i] = {
-          status: 1,
-          version: "",
-          value: ""
-        };
+  if (obj?.data) {
+    for (let i of items) {
+      if (obj?.data?.[i]) {
+        obj.data[i] = { status: 1, version: "", value: "" };
       }
     }
   }
-} else if(url.includes("/shield/search/common/coupon/info")) {
-  if(obj ? .data) {
+} else if (url.includes("/shield/search/common/coupon/info")) {
+  if (obj?.data) {
     obj.data = {};
   }
-} else if(url.includes("/shield/search/nearbyrec_smart")) {
+} else if (url.includes("/shield/search/nearbyrec_smart")) {
   // 附近页面
-  if(obj ? .data ? .modules ? .length > 0) {
+  if (obj?.data?.modules?.length > 0) {
     const items = ["head", "search_hot_words", "feed_rec"];
-    if(obj ? .data ? .modules ? .length > 0) {
-      obj.data.modules = obj.data.modules.filter((i) => items ? .includes(i));
+    if (obj?.data?.modules?.length > 0) {
+      obj.data.modules = obj.data.modules.filter((i) => items?.includes(i));
     }
   }
-} else if(url.includes("/shield/search/poi/detail")) {
+} else if (url.includes("/shield/search/poi/detail")) {
   // 搜索结果 模块详情
   const items = [
     "CouponBanner", // 高德红包
@@ -399,123 +395,125 @@ if(url.includes("/boss/car/order/content_info")) {
     "waterFallFeed", // 附近景点瀑布流
     "waterFallFeedTitle" // 更多好去处
   ];
-  if(obj ? .data ? .modules) {
-    for(let i of items) {
+  if (obj?.data?.modules) {
+    for (let i of items) {
       delete obj.data.modules[i];
     }
   }
-} else if(url.includes("/shield/search_business/process/marketingOperationStructured")) {
+} else if (url.includes("/shield/search_business/process/marketingOperationStructured")) {
   // 详情页 顶部优惠横幅
-  if(obj ? .data ? .tipsOperationLocation) {
+  if (obj?.data?.tipsOperationLocation) {
     delete obj.data.tipsOperationLocation;
   }
-  if(obj ? .data ? .resourcePlacement) {
+  if (obj?.data?.resourcePlacement) {
     delete obj.data.resourcePlacement;
   }
-} else if(url.includes("/shield/search_poi/homepage")) {
+} else if (url.includes("/shield/search_poi/homepage")) {
   // 首页 搜索框历史记录 推广标签
-  if(obj ? .history_tags) {
+  if (obj?.history_tags) {
     delete obj.history_tags;
   }
-} else if(url.includes("/shield/search_poi/search/sp") || url.includes("/shield/search_poi/mps")) {
-  if(obj ? .data ? .list_data) {
+} else if (url.includes("/shield/search_poi/search/sp") || url.includes("/shield/search_poi/mps")) {
+  if (obj?.data?.list_data) {
     let list = obj.data.list_data.content[0];
     // 详情页 底部 房产推广
-    if(list ? .hookInfo) {
+    if (list?.hookInfo) {
       let hookData = list.hookInfo.data;
-      if(hookData ? .header) {
+      if (hookData?.header) {
         delete hookData.header;
       }
-      if(hookData ? .house_info) {
+      if (hookData?.house_info) {
         delete hookData.house_info;
       }
     }
     // 详情页 底部 订酒店
-    if(list ? .map_bottom_bar ? .hotel) {
+    if (list?.map_bottom_bar?.hotel) {
       delete list.map_bottom_bar.hotel;
     }
-    if(list ? .poi ? .item_info ? .tips_bottombar_button ? .hotel) {
+    if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
       delete list.poi.item_info.tips_bottombar_button.hotel;
     }
     // 地图优惠推广
-    if(list ? .map ? .main_point) {
+    if (list?.map?.main_point) {
       delete list.map.main_point;
     }
-    if(list ? .tips_operation_info) {
+    if (list?.tips_operation_info) {
       delete list.tips_operation_info;
     }
-    if(list ? .bottom ? .bottombar_button ? .hotel) {
+    if (list?.bottom?.bottombar_button?.hotel) {
       delete list.bottom.bottombar_button.hotel;
     }
     // 搜索页 顶部卡片
-    if(list ? .card ? .card_id === "SearchCardBrand" && list ? .item_type === "brandAdCard") {
+    if (list?.card?.card_id === "SearchCardBrand" && list?.item_type === "brandAdCard") {
       delete list.card;
     }
-    if(list ? .card ? .card_id === "NearbyGroupBuy" && list ? .item_type === "toplist") {
+    if (list?.card?.card_id === "NearbyGroupBuy" && list?.item_type === "toplist") {
       delete list.card;
     }
-    if(list ? .card ? .card_id === "ImageBanner" && list ? .item_type === "ImageBanner") {
+    if (list?.card?.card_id === "ImageBanner" && list?.item_type === "ImageBanner") {
       delete list.card;
     }
-  } else if(obj ? .data ? .district ? .poi_list) {
+  } else if (obj?.data?.district?.poi_list) {
     // 搜索列表详情页
     let poi = obj.data.district.poi_list[0];
     // 订票横幅
-    if(poi ? .transportation) {
+    if (poi?.transportation) {
       delete poi.transportation;
     }
     // 景点门票 酒店特惠 特色美食 休闲玩乐
-    if(poi ? .feed_rec_tab) {
+    if (poi?.feed_rec_tab) {
       delete poi.feed_rec_tab;
     }
-  } else if(obj ? .data ? .modules) {
-    if(obj ? .data ? .modules ? .not_parse_result ? .data ? .list_data) {
+  } else if (obj?.data?.modules) {
+    if (obj?.data?.modules?.not_parse_result?.data?.list_data) {
       let list = obj.data.modules.not_parse_result.data.list_data.content[0];
       // 详情页 底部 房产推广
-      if(list ? .hookInfo) {
+      if (list?.hookInfo) {
         let hookData = list.hookInfo.data;
-        if(hookData ? .header) {
+        if (hookData?.header) {
           delete hookData.header;
         }
-        if(hookData ? .house_info) {
+        if (hookData?.house_info) {
           delete hookData.house_info;
         }
       }
       // 详情页 底部 订酒店
-      if(list ? .map_bottom_bar ? .hotel) {
+      if (list?.map_bottom_bar?.hotel) {
         delete list.map_bottom_bar.hotel;
       }
-      if(list ? .poi ? .item_info ? .tips_bottombar_button ? .hotel) {
+      if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
         delete list.poi.item_info.tips_bottombar_button.hotel;
       }
       // 地图优惠推广
-      if(list ? .map ? .main_point) {
+      if (list?.map?.main_point) {
         delete list.map.main_point;
       }
       // 左上角动图推广
-      if(list ? .tips_operation_info) {
+      if (list?.tips_operation_info) {
         delete list.tips_operation_info;
       }
-      if(list ? .bottom ? .bottombar_button ? .hotel) {
+      if (list?.bottom?.bottombar_button?.hotel) {
         delete list.bottom.bottombar_button.hotel;
       }
     }
-    if(obj ? .data ? .modules ? .list_data ? .data) {
+    if (obj?.data?.modules?.list_data?.data) {
       // 搜索列表
       let list = obj.data.modules.list_data.data;
-      if(list ? .content ? .length > 0) {
+      if (list?.content?.length > 0) {
         // brandAdCard广告卡片 toplist_al人气榜单 高德指南
-        list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"] ? .includes(i ? .item_type));
+        list.content = list.content.filter((i) => !["brandAdCard", "toplist_al"]?.includes(i?.item_type));
       }
     }
   }
-} else if(url.includes("/shield/search_poi/sug")) {
-  if(obj ? .tip_list) {
+} else if (url.includes("/shield/search_poi/sug")) {
+  if (obj?.tip_list) {
     let newLists = [];
-    if(obj ? .tip_list ? .length > 0) {
-      for(let item of obj.tip_list) {
-        if(
-          ["12"] ? .includes(item ? .tip ? .datatype_spec) || ["ad", "poi_ad", "toplist"] ? .includes(item ? .tip ? .result_type) || ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"] ? .includes(item ? .tip ? .task_tag)
+    if (obj?.tip_list?.length > 0) {
+      for (let item of obj.tip_list) {
+        if (
+          ["12"]?.includes(item?.tip?.datatype_spec) ||
+          ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type) ||
+          ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"]?.includes(item?.tip?.task_tag)
         ) {
           continue;
         } else {
@@ -524,16 +522,16 @@ if(url.includes("/boss/car/order/content_info")) {
       }
       obj.tip_list = newLists;
     }
-  } else if(obj ? .city_list) {
+  } else if (obj?.city_list) {
     let newLists = [];
-    if(obj ? .city_list ? .length > 0) {
-      for(let item of obj.city_list) {
+    if (obj?.city_list?.length > 0) {
+      for (let item of obj.city_list) {
         let newTips = [];
-        if(item ? .tip_list ? .length > 0) {
-          for(let ii of item.tip_list) {
-            if(["12"] ? .includes(ii ? .tip ? .datatype_spec)) {
+        if (item?.tip_list?.length > 0) {
+          for (let ii of item.tip_list) {
+            if (["12"]?.includes(ii?.tip?.datatype_spec)) {
               continue;
-            } else if(["ad", "poi_ad"] ? .includes(ii ? .tip ? .result_type)) {
+            } else if (["ad", "poi_ad"]?.includes(ii?.tip?.result_type)) {
               continue;
             } else {
               newTips.push(ii);
@@ -546,9 +544,9 @@ if(url.includes("/boss/car/order/content_info")) {
       obj.city_list = newLists;
     }
   }
-} else if(url.includes("/shield/search_poi/tips_operation_location")) {
+} else if (url.includes("/shield/search_poi/tips_operation_location")) {
   // 搜索页面 底部结果上方窄横幅
-  if(obj ? .data ? .coupon) {
+  if (obj?.data?.coupon) {
     delete obj.data.coupon;
   }
   const items = [
@@ -564,15 +562,15 @@ if(url.includes("/boss/car/order/content_info")) {
     "promotion_wrap_card",
     "tips_top_banner"
   ];
-  if(obj ? .data ? .modules) {
-    for(let i of items) {
+  if (obj?.data?.modules) {
+    for (let i of items) {
       delete obj.data.modules[i];
     }
   }
-} else if(url.includes("/valueadded/alimama/splash_screen")) {
+} else if (url.includes("/valueadded/alimama/splash_screen")) {
   // 开屏广告
-  if(obj ? .data ? .ad ? .length > 0) {
-    for(let item of obj.data.ad) {
+  if (obj?.data?.ad?.length > 0) {
+    for (let item of obj.data.ad) {
       item.set.setting.display_time = 0;
       item.creative[0].start_time = 3818332800; // Unix 时间戳 2090-12-31 00:00:00
       item.creative[0].end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
@@ -580,6 +578,4 @@ if(url.includes("/boss/car/order/content_info")) {
   }
 }
 
-$done({
-  body: JSON.stringify(obj)
-});
+$done({ body: JSON.stringify(obj) });
