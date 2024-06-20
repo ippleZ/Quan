@@ -9,4 +9,5 @@ HOST,access.mypikpak.com,REJECT
 
 # ========== PROXY 0 ===========
 DOMAIN-KEYWORD,sanfen,PROXY
+HOST-SUFFIX,cici.ai,PROXY
 # ========== PROXY 1 ===========
