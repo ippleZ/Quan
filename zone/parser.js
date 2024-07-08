@@ -29,7 +29,7 @@ const sub_link = { "open-url": link1, "media-url": "https://shrtm.nu/ebAr" } // 
 const update_link = {"open-url" : "https://apps.apple.com/us/app/quantumult-x/id1443988620", "media-url": qxpng}
 const plink0 = {"open-url" : link0, "media-url": qxpng} // 跳转订阅链接
 
-if(version == 0) { $notify(" 请更新 Quantumult X 至最新商店版本\n","🚦 当前版本可能无法正常使用部分功能","\n👉 点击跳转商店链接更新",update_link) }
+if(version == 0) { $notify("⚠️ 请更新 Quantumult X 至最新商店版本\n","🚦 当前版本可能无法正常使用部分功能","\n👉 点击跳转商店链接更新",update_link) }
 
 const ADDRes = `quantumult-x:///add-resource?remote-resource=url-encoded-json`
 var RLink0 = {
@@ -196,7 +196,7 @@ function Parser() {
       
     } catch (err) {
       if(Perror == 0) {
-      $notify("❌ 解析出现错误", " 请点击通知，发送订阅链接进行反馈", err, bug_link);
+      $notify("❌ 解析出现错误", "⚠️ 请点击通知，发送订阅链接进行反馈", err, bug_link);
     }
     }
   } else if (type0 == "wrong-field"){
@@ -204,9 +204,9 @@ function Parser() {
       RLink0[Field[typec]].push($resource.link+", opt-parser=true, tag=下次添加资源🉑️长点❤️8⃣️") //  跳转URI-Scheme
       var flink = ADDRes.replace(/url-encoded-json/,encodeURIComponent(JSON.stringify(RLink0)))
       const bug_linkx = { "open-url": flink, "media-url": "https://shrtm.nu/obcB" } // bug linkx
-    $notify( " 请点击通知跳转尝试添加到正确类型中","❌ 检测类型["+typec+"]"+"与填入类型"+"["+typeQ+"]冲突", "如果跳转添加仍旧失败，请发送链接反馈解析器bot\n"+$resource.link, bug_linkx)
+    $notify( "⚠️ 请点击通知跳转尝试添加到正确类型中","❌ 检测类型["+typec+"]"+"与填入类型"+"["+typeQ+"]冲突", "如果跳转添加仍旧失败，请发送链接反馈解析器bot\n"+$resource.link, bug_linkx)
     } else {//旧版本
-    $notify("❌ 检测类型「"+typec+" 」"+"与目标类型"+" 「"+typeQ+" 」冲突", " 请自行检查链接内容，或点击通知发送链接进行反馈", $resource.link, bug_link)
+    $notify("❌ 检测类型「"+typec+" 」"+"与目标类型"+" 「"+typeQ+" 」冲突", "⚠️ 请自行检查链接内容，或点击通知发送链接进行反馈", $resource.link, bug_link)
     }
     total=""
   } else {
@@ -223,11 +223,11 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
     Profile_Handle()
   } catch (err) {
     if(Perror == 0) {
-      $notify("❌ 解析出现错误", " 请点击通知，发送订阅链接进行反馈", err, bug_link);
+      $notify("❌ 解析出现错误", "⚠️ 请点击通知，发送订阅链接进行反馈", err, bug_link);
     }
     }
   openlink = {"open-url": ADDres}
-  $notify("请忽略报错提示, 点击此通知跳转", "添加配置中的有效远程资源["+ PProfile+"]", ADDres,openlink)
+  $notify("⚠️请忽略报错提示, 点击此通知跳转", "添加配置中的有效远程资源👇 ["+ PProfile+"]", ADDres,openlink)
   total = ProfileInfo[typeQ]
   $done({content:total})
 }
@@ -236,14 +236,14 @@ function ParseUnknown(cnt){
   try {
     cnt = JSON.parse(cnt)
     if(cnt) {
-      $notify(" 链接返回内容并非有效订阅"+ "⟦" + subtag + "⟧","⁉️ 请自行检查原始链接，返回内容 ️️",JSON.stringify(cnt), bug_link)
+      $notify("⚠️ 链接返回内容并非有效订阅"+ "⟦" + subtag + "⟧","⁉️ 请自行检查原始链接，返回内容 👇️👇️",JSON.stringify(cnt), bug_link)
     }
     
   } catch(err) {
     if (!/error|block|invalid|support/.test(cnt.toLowerCase())) {
-    $notify("未能识别订阅 " + "⟦" + subtag + "⟧ 的内容",  " 将尝试直接导入Quantumult X \n 如认为是 BUG, 请点通知跳转并 [发送链接] 反馈", "订阅返回内容: \n"+cnt, bug_link);
+    $notify("😭 未能识别订阅 " + "⟦" + subtag + "⟧ 的内容",  "⚠️ 将尝试直接导入Quantumult X \n 如认为是 BUG, 请点通知跳转并 [发送链接] 反馈", "订阅返回内容: 👇 \n"+cnt, bug_link);
   } else {
-    $notify("⟦" + subtag + "⟧ 返回内容无效",  "请自行检查订阅，不要跑来反馈", "订阅返回内容: \n"+cnt, plink0);
+    $notify("💢 ⟦" + subtag + "⟧ 返回内容无效",  "😠 请自行检查订阅，不要跑来反馈", "订阅返回内容: 👇 \n"+cnt, plink0);
   }
 }
 }
@@ -300,7 +300,7 @@ function ResourceParse() {
      RLink = RLink.replace("sremoteposition",url).replace("fremoteposition","").replace("rremoteposition","")
     let ADDres0 = ADDres.replace("url-encoded-json",encodeURIComponent(RLink))
     openlink = {"open-url": ADDres0}
-    $notify(" 该链接为节点订阅, 请点击此通知跳转添加", url, ADDres0,openlink)
+    $notify("⚠️ 该链接为节点订阅, 请点击此通知跳转添加", url, ADDres0,openlink)
     flag = -1
     total = ""
   } else if (type0 == "unknown") {
@@ -310,7 +310,7 @@ function ResourceParse() {
     PProfile = "111" //默认添加所有部分
     Profile_Handle()
     openlink = {"open-url": ADDres}
-    $notify(" 该链接为完整配置文件, 请点击此通知跳转", "添加配置中的有效远程资源["+ PProfile+"]", ADDres, openlink)
+    $notify("⚠️ 该链接为完整配置文件, 请点击此通知跳转", "添加配置中的有效远程资源👇 ["+ PProfile+"]", ADDres, openlink)
     flag = -1;
     total = ""
   } else if (type0 == "JS-0") {
@@ -370,7 +370,7 @@ function ResourceParse() {
       } else { $done({ content: total });}
     } else {
       if(Perror == 0) {
-      $notify("❓❓ 友情提示 ➟ "+ "⟦" + subtag + "⟧", " 解析后无有效内容", "🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈", bug_link)
+      $notify("❓❓ 友情提示 ➟ "+ "⟦" + subtag + "⟧", "⚠️⚠️ 解析后无有效内容", "🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈", bug_link)
     }
       total = errornode
       $done({ content: errornode })
@@ -408,7 +408,7 @@ function SubFlow() {
     $notify("流量信息: ⟦" + subtag + "⟧", epr, message, subinfo_link)
   }
 //  } else if (Pinfo ==1){
-//    $notify("流量信息: ⟦" + subtag + "⟧", "", " 该订阅链接未返回任何流量信息", subinfo_link)
+//    $notify("流量信息: ⟦" + subtag + "⟧", "", "⚠️ 该订阅链接未返回任何流量信息", subinfo_link)
 //  }
 }
 
@@ -424,18 +424,18 @@ function flowcheck(cnt) {
             exptime = nm
         }
     }
-  flow = flow? flow:" 该订阅未返回任何流量信息"
-  exptime = exptime? exptime:" 该订阅未返回套餐时间信息"
+  flow = flow? flow:"⚠️ 该订阅未返回任何流量信息"
+  exptime = exptime? exptime:"⚠️ 该订阅未返回套餐时间信息"
     if (flow != "") { $notify("流量信息: ⟦" + subtag + "⟧", flow, exptime, subinfo_link1) }
 }
 
 // regex 后的检查
 function RegCheck(total, typen, paraname,regpara) {
   if(total.length == 0){ 
-    $notify("‼️ " + typen + "  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选正则: " + paraname + "=" + regpara, " 筛选后剩余项为 0️⃣ , 请检查正则参数及原始链接", nan_link)
+    $notify("‼️ " + typen + "  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选正则: " + paraname + "=" + regpara, "⚠️ 筛选后剩余项为 0️⃣ , 请检查正则参数及原始链接", nan_link)
   }else if((typen != "节点订阅" && Pntf0 !=0) || (typen == "节点订阅" && Pntf0 ==1)){
     var nolist = total.length <= 10 ? emojino[total.length] : total.length
-    $notify("🤖 " + typen + "  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选正则: " + paraname + "=" + regpara, " 筛选后剩余以下" + nolist + "个匹配项 \n ⨷ " + total.join("\n ⨷ "), sub_link)
+    $notify("🤖 " + typen + "  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选正则: " + paraname + "=" + regpara, "⚠️ 筛选后剩余以下" + nolist + "个匹配项 \n ⨷ " + total.join("\n ⨷ "), sub_link)
   }
 }
 //判断订阅类型
@@ -531,7 +531,7 @@ function Type_Check(subs) {
       type = "profile"  //默认配置类型
     }else if (/\.js/.test(link0)) { // xjb添加js脚本的行为
       Perror = 1 ; // 无需反馈
-      $notify(" 你导入的链接内容为 JS 脚本","🚥 脚本内未有重写规则，无法解析使用", " 请不要跑来解析器🤖️反馈 \n"+link0)
+      $notify("⚠️ 你导入的链接内容为 JS 脚本","🚥 脚本内未有重写规则，无法解析使用", " 请⚠️不要⚠️跑来解析器🤖️反馈 \n"+link0)
       type = "JS-0"
     } else if (typeQ =="server" && subs.length>100) { // 一些未知的b64 encode server case
       typec="server-b64-unknown"
@@ -595,14 +595,14 @@ function TagCheck_QX(content) {
     }
     if (nulllist.length >= 1) {
         no = nulllist.length <= 10 ? emojino[nulllist.length] : nulllist.length;
-        $notify(" 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个空节点名 ", "✅ 已将节点“类型+IP”设为节点名", " ⨁ " + nulllist.join("\n ⨁ "), nan_link)
+        $notify("⚠️ 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个空节点名 ", "✅ 已将节点“类型+IP”设为节点名", " ⨁ " + nulllist.join("\n ⨁ "), nan_link)
     }
     if (duplist.length >= 1) {
         no = duplist.length <= 10 ? emojino[duplist.length] : duplist.length;
       if (Pdel!=1 && Pntf0 != 0){
-        $notify(" 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个名字重复的节点 ", "✅ 已添加数字区分, 删除请添加参数 del=1:", " ⨁ " + duplist.join("\n ⨁ "), nan_link)
+        $notify("⚠️ 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个名字重复的节点 ", "✅ 已添加数字区分, 删除请添加参数 del=1:", " ⨁ " + duplist.join("\n ⨁ "), nan_link)
       } else if (Pdel ==1 && Pntf0 != 0) {
-        $notify(" 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个名字重复的节点 ", "❌️ 已全部删除，如需保留请去除参数 del=1:", " ⨁ " + duplist.join("\n ⨁ "), nan_link)
+        $notify("⚠️ 引用" + "⟦" + subtag + "⟧" + " 内有" + no + "个名字重复的节点 ", "❌️ 已全部删除，如需保留请去除参数 del=1:", " ⨁ " + duplist.join("\n ⨁ "), nan_link)
       }
     }
     return Nlist
@@ -794,9 +794,9 @@ function ToRaw(cnt) {
   cnt = cnt.split("\n").map(rawtest).filter(Boolean).join("\n")
   var rawlink = link0.replace("github.com","raw.githubusercontent.com").replace("/blob","")
   if (cnt) {
-    $notify( " 将尝试解析该资源" + "⟦" + subtag + "⟧" , "🚥 请正确使用GitHub的 raw 链接" , "❌ 你的链接："+link0+"\n✅ 正确链接："+rawlink, {"open-url":rawlink})
+    $notify( "⚠️⚠️ 将尝试解析该资源" + "⟦" + subtag + "⟧" , "🚥 请正确使用GitHub的 raw 链接" , "❌ 你的链接："+link0+"\n✅ 正确链接："+rawlink, {"open-url":rawlink})
   } else if(content0.indexOf("gridcell")!=-1) {
-    $notify( " 解析该资源" + " ⟦" + subtag + "⟧ 失败" , "🚥 你的链接似乎是目录，而不是文件" , "❌ 你的链接："+link0, {"open-url":link0})
+    $notify( "⚠️⚠️ 解析该资源" + " ⟦" + subtag + "⟧ 失败" , "🚥 你的链接似乎是目录，而不是文件" , "❌ 你的链接："+link0, {"open-url":link0})
   }
   return cnt
 }
@@ -876,15 +876,15 @@ function ALPN_Handle(cnt,palpn) {
 
 function Mock2QXReject(row, filename) {
     if (/dict/i.test(filename)) {
-        return row.replace(/ /g, "").split("data=")[0] + " url " + "reject-dict"
+        return row.replace(/ /g, "").split("data=")[0].split("data-type=")[0] + " url " + "reject-dict"
     } else if (/array/i.test(filename)) {
-        return row.replace(/ /g, "").split("data=")[0] + " url " + "reject-array"
-    } else if (/(txt|html)/i.test(filename)) {
-        return row.replace(/ /g, "").split("data=")[0] + " url " + "reject-200"
+        return row.replace(/ /g, "").split("data=")[0].split("data-type=")[0] + " url " + "reject-array"
+    } else if (/(txt|html)/i.test(filename) || filename==null) {
+        return row.replace(/ /g, "").split("data=")[0].split("data-type=")[0] + " url " + "reject-200"
     } else if (/(png|jpg|gif)/i.test(filename)) {
-        return row.replace(/ /g, "").split("data=")[0] + " url " + "reject-img"
+        return row.replace(/ /g, "").split("data=")[0].split("data-type=")[0] + " url " + "reject-img"
     } else {
-        return row.replace(/ /g, "").split("data=")[0] + " url " + "reject"
+        return row.replace(/ /g, "").split("data=")[0].split("data-type=")[0] + " url " + "reject"
     }
 }
 
@@ -908,10 +908,10 @@ function URX2QX(subs) {
         } else if (subs[i].indexOf("data=") != -1 && subs.indexOf("[Map Local]") != -1){ // Map Local 类型
             // 取subs[i]的文件名
             let fn = subs[i].match(/data=.+\/(.+)"/) ? subs[i].match(/data=.+\/(.+)"/)[1] : null
-            if (!/header=".*content-type/i.test(subs[i]) && /blank/i.test(fn)) {
+            if ((!/header=".*content-type/i.test(subs[i]) && /blank/i.test(fn)) || fn==null) {
                 rw = Mock2QXReject(subs[i], fn)
             } else {
-                rw = subs[i].replace(/ /g, "").split("data=")[0].replace(/\"/g,"") + " url echo-response text/html echo-response " + subs[i].split("data=")[1].split(" ")[0].replace(/\"/g,"").replace(/ /g, "")//"reject-dict"
+                rw = subs[i].replace(/ /g, "").split("data=")[0].split("data-type=")[0].replace(/\"/g,"") + " url echo-response text/html echo-response " + subs[i].split("data=")[1].split(" ")[0].replace(/\"/g,"").replace(/ /g, "")//"reject-dict"
                 if (subs[i].indexOf("header=")!=-1) {
                     if (subs[i].indexOf("Content-Type:") !=-1) {
                         let tpe = subs[i].split("header=")[1].split("Content-Type:")[1].split(",")[0].replace(/\"/g,"")
@@ -1080,9 +1080,9 @@ function Rewrite_Filter(subs, Pin, Pout,Preg,Pregout) {
     }
     if (Nlist.length == 0 ) { 
       if ((Pin0 || Pout0 || Phin0 || Phout0 || Pregout || Preg)) {
-        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选参数: " + pfi + pfo, " 筛选后剩余rewrite规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link) 
+        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选参数: " + pfi + pfo, "⚠️ 筛选后剩余rewrite规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link) 
       } else {
-        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 解析后 rewrite 规则数为 0️⃣ 条 " , " 请检查参数及原始链接内容", nan_link) 
+        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 解析后 rewrite 规则数为 0️⃣ 条 " , "⚠️ 请检查参数及原始链接内容", nan_link) 
       
       }
     }
@@ -1133,7 +1133,7 @@ function HostNamecheck(content, parain, paraout) {
         }
     }
     if (nname.length == 0) {
-        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选参数: " + pfihn + pfohn, " 主机名 hostname 中剩余 0️⃣ 项, 请检查参数及原始链接", nan_link)
+        $notify("🤖 " + "重写引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 筛选参数: " + pfihn + pfohn, "⚠️ 主机名 hostname 中剩余 0️⃣ 项, 请检查参数及原始链接", nan_link)
     }
     if(Preg){ nname = nname.map(Regex).filter(Boolean)
       RegCheck(nname, "主机名hostname","regex", Preg) }
@@ -1194,7 +1194,7 @@ function Rule_Handle(subs, Pout, Pin) {
         var no = dlist.length <= 10 ? emojino[dlist.length] : dlist.length
         if (dlist.length > 0) {
             if (Pntf0 != 0) { $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 禁用: " + Tout, "☠️ 已禁用以下" + no + "条匹配规则:" + "\n ⨷ " + dlist.join("\n ⨷ "), rule_link) }
-        } else { $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 禁用: " + Tout, " 未发现任何匹配项, 请检查参数或原始链接", nan_link) }
+        } else { $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 禁用: " + Tout, "⚠️ 未发现任何匹配项, 请检查参数或原始链接", nan_link) }
         if (Tin != "" && Tin != null) {  //有 in 跟 out 参数时
             if (nlist.length > 0) {
                 var noin0 = nlist.length <= 10 ? emojino[nlist.length] : nlist.length
@@ -1202,11 +1202,11 @@ function Rule_Handle(subs, Pout, Pin) {
                     $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin, "🎯 已保留以下 " + noin0 + "条匹配规则:" + "\n ⨁ " + nlist.join("\n ⨁ "), rule_link)
                 }
             } else {
-                $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin + ",⛔️ 禁用: " + Tout, " 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link)
+                $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin + ",⛔️ 禁用: " + Tout, "⚠️ 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link)
             }
         } else {// if Tin (No Tin)
             if (nlist.length == 0) {
-                $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 禁用: " + Tout, " 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link)
+                $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "⛔️ 禁用: " + Tout, "⚠️ 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link)
             }
         }
       nlist =Phide ==1? nlist : [...dlist,...nlist]
@@ -1230,7 +1230,7 @@ function Rule_Handle(subs, Pout, Pin) {
             if (Pntf0 != 0) {
                 $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin, "🎯 已保留以下 " + noin + "条匹配规则:" + "\n ⨁ " + nlist.join("\n ⨁ "), rule_link)
             }
-        } else { $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin, " 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link) }
+        } else { $notify("🤖 " + "分流引用  ➟ " + "⟦" + subtag + "⟧", "✅ 保留:" + Tin, "⚠️ 筛选后剩余规则数为 0️⃣ 条, 请检查参数及原始链接", nan_link) }
       nlist =Phide ==1? nlist : [...dlist,...nlist]
       //return nlist;
     } else {  //if Tin
@@ -1460,7 +1460,7 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
                     }
                 } else if (type == "vless" && version<821) {
                   Perror = 1 ; // 无需反馈
-                  $notify(" 你的 Quantumult X 版本暂未支持 Vless 节点","请 不要 跑来 解析器🤖️ 反馈",list0[i])
+                  $notify("⚠️ 你的 Quantumult X 版本暂未支持 Vless 节点","请 ⚠️不要⚠️ 跑来 解析器🤖️ 反馈",list0[i])
                 } else if (type == "vless" ) { // version 150 support vless 
                   node=VL2QX(list0[i], Pudp, Ptfo, Pcert0, PTls13)
                 } else if (QuanXK.some(NodeCheck1)) {
@@ -1495,7 +1495,7 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
         }
     }
     if (failedList.length > 0 && Pntf0 != 0) {
-        $notify(` 有 ${failedList.length} 条数据解析失败, 已忽略`, "出错内容", failedList.join("\n"));
+        $notify(`⚠️ 有 ${failedList.length} 条数据解析失败, 已忽略`, "出错内容👇", failedList.join("\n"));
     }
     //$notify("QXList","check below content",QXlist)
     return QXlist;
@@ -1674,7 +1674,7 @@ function VR2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
   } else if (obfs=="grpc" || obfs =="h2") {
     Perror = 1 // 不需要反馈的类型
     if (Pntf0!=0) {
-    $notify( " Quantumult X 暂不支持该类型节点", "已忽略以下 grpc|h2 vmess 节点",subs)
+    $notify( "⚠️ Quantumult X 暂不支持该类型节点", "已忽略以下 grpc|h2 vmess 节点",subs)
   }
     pdrop = 1
   }
@@ -1782,7 +1782,7 @@ function Fobfs(jsonl, Pcert0, PTls13) {
     return obfsi.join(", ")
   } else if (jsonl.net !="tcp" && jsonl.net !="none" &&  jsonl.net != undefined){ // 过滤掉 h2/http 等类型
     Perror = 1
-    $notify(" Quantumult X 不支持该类型节点", "vmess + " + jsonl.net, JSON.stringify(jsonl))
+    $notify("⚠️ Quantumult X 不支持该类型节点", "vmess + " + jsonl.net, JSON.stringify(jsonl))
     return "NOT-SUPPORTTED"
   } else if ((jsonl.net == "tcp" || jsonl.net == "none") && jsonl.type != undefined && jsonl.type != "none" && jsonl.type != "" && jsonl.type != "vmess") {
     return "NOT-SUPPORTTED"
@@ -1860,7 +1860,7 @@ function Filter(servers, Pin, Pout) {
             $notify("👥 引用" + "⟦" + subtag + "⟧" + " 开始节点筛选", "🕹 筛选关键字: " + pfi + pfo, "☠️ 已删除以下 " + no + "个节点\n" + Delist.join(", "), sub_link);
         }
     } else if (no1 == 0 || no1 == null) { //无剩余节点时强制通知
-        $notify("‼️ ⟦" + subtag + "⟧" + "筛选后节点数为0️⃣", " 请自行检查原始链接以及筛选参数", link0, sub_link);
+        $notify("‼️ ⟦" + subtag + "⟧" + "筛选后节点数为0️⃣", "⚠️ 请自行检查原始链接以及筛选参数", link0, sub_link);
     }
     return Nlist
 }
@@ -1875,7 +1875,7 @@ function FilterScript(servers, script) {
         const IN = filter(nodes);
         const res = servers.filter((_, i) => IN[i]);
         if (res.length === 0) {
-            $notify("‼️ ⟦" + subtag + "⟧" + "筛选后节点数为0️⃣", " 请自行检查原始链接以及筛选参数", link0, sub_link);
+            $notify("‼️ ⟦" + subtag + "⟧" + "筛选后节点数为0️⃣", "⚠️ 请自行检查原始链接以及筛选参数", link0, sub_link);
         }
         return res;
     } catch (err) {
@@ -2158,7 +2158,7 @@ try {
   return cntii
 } catch (err) {
   if(Perror == 0) {
-  $notify("❌ 解析出现错误,已忽略该条目", " 请点击通知，发送订阅链接进行反馈", cntf+"\n"+ err, bug_link);
+  $notify("❌ 解析出现错误,已忽略该条目", "⚠️ 请点击通知，发送订阅链接进行反馈", cntf+"\n"+ err, bug_link);
 }
 }
   return ""
@@ -2833,7 +2833,7 @@ function YAMLFix(cnt){
   cnt = cnt.replace(/\n\s*\-\s*\n.*name/g,"\n  - name").replace(/\$|\`/g,"").split("proxy-providers:")[0].split("proxy-groups:")[0].replace(/\"(name|type|server|port|cipher|password|uuid|alterId|udp)(\"*)/g,"$1")
     if(Pdbg == 1) {
   $notify("part-fix0:","","part-fix0:\nproxies:\n"+cnt.split("proxies:")[1])}
-  // 2023-03-23  修正部分类型
+  // 2023-03-23  👇修正部分类型
   cnt = cnt.replace(/\n\s{2}([a-zA-Z]+.*\:)/g,"\n    $1").replace(/\n(\-.*)/g,"\n  $1")
   if(Pdbg == 1) {
   $notify("part-fix1:","","part-fix1:\nproxies:\n"+cnt.split("proxies:")[1])}
@@ -2844,7 +2844,7 @@ function YAMLFix(cnt){
   //console.log(cnt.replace(/name\:(.*?)\:(.*?)\n/gmi,"name:$1冒号$2"))
   //2022-05-11 增加⬇️
   //cnt = cnt.replace(/\n\s{4}headers/g,"\n      headers").replace(/\n\s{6}(H|h)ost/g,"\n        Host").replace(/\t/g,"")
-  //2022-06-07 修改为，解决部分无 proxies 字段的
+  //2022-06-07 修改为👇，解决部分无 proxies 字段的
   //2022-09-01 remove host in s{6}(H|h)ost
   //cnt = cnt.indexOf("proxies:") != -1?cnt.replace(/\n\s{4}headers/g,"\n      headers").replace(/\n\s{6}Host/g,"\n        Host").replace(/\t/g,""):cnt
   //2022-11-29 修改
@@ -2907,8 +2907,8 @@ function Clash2QX(cnt) {
       node = Ptfo0 != 0 ? XTFO(node,Ptfo0) : node
       nodelist.push(node)
     }catch (e) {
-      $notify(`该节点解析错误, 暂时已忽略处理`,`可点击通知并发送链接反馈至 bot`,JSON.stringify(node),bug_link )
-      $notify(`错误内容如下`,`可复制错误内容到反馈 bot`,JSON.stringify(node)+"\n\n"+e)
+      $notify(`⚠️该节点解析错误, 暂时已忽略处理`,`可点击通知并发送链接反馈至 bot`,JSON.stringify(node),bug_link )
+      $notify(`⚠️错误内容如下`,`可复制错误内容到反馈 bot`,JSON.stringify(node)+"\n\n"+e)
     }
   }
   return nodelist.join("\n")
