@@ -1,24 +1,33 @@
 let obj = JSON.parse($response.body);
-console.log("Original object:", JSON.stringify(obj));
 
-if (obj.bizResult && obj.bizResult.data && obj.bizResult.data.ernInfo) {
-  obj.bizResult.data.ernInfo.forEach((item, index) => {
-    let ernMon = parseFloat(item.ernMon);
-    console.log(`Processing item ${index}, original ernMon: ${ernMon}`);
-    
-    if (ernMon > 0) {
-      ernMon *= 2;
-    } else if (ernMon < 0) {
-      ernMon /= 2;
-    }
-    
-    item.ernMon = ernMon.toFixed(2);
-    console.log(`Item ${index} processed, new ernMon: ${item.ernMon}`);
-  });
-} else {
-  console.log("Required data not found in the object");
+function processValue(value) {
+  let num = parseFloat(value);
+  if (num > 0) {
+    num *= 2;
+  } else if (num < 0) {
+    num /= 2;
+  }
+  return num.toFixed(2);
 }
 
-console.log("Modified object:", JSON.stringify(obj));
+if (obj.bizResult && obj.bizResult.data) {
+  if (obj.bizResult.data.ernInfo) {
+    obj.bizResult.data.ernInfo.forEach(item => {
+      if (item.ernMon) {
+        item.ernMon = processValue(item.ernMon);
+      }
+    });
+  }
+  
+  if (obj.bizResult.data.weekList) {
+    obj.bizResult.data.weekList.forEach(week => {
+      week.sevenDay.forEach(day => {
+        if (day.income) {
+          day.income = processValue(day.income);
+        }
+      });
+    });
+  }
+}
 
 $done({body: JSON.stringify(obj)});
