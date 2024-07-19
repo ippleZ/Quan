@@ -1,3 +1,5 @@
+// 2024-07-16 09:00
+
 const url = $request.url;
 let header = $request.headers;
 
@@ -56,20 +58,20 @@ if (typeof $response === "undefined") {
       obj.result.svip_given = 730;
       obj.result.is_phone_verified = true;
       obj.result.is_xy_vip = true;
-      obj.result.vip_expired_at = 4102329600;
+      obj.result.vip_expired_at = 4102329600.16;
       obj.result.is_vip = true;
-      obj.result.xy_svip_expire = 4102329600;
+      obj.result.xy_svip_expire = 4102329600.16;
       if (obj.result.wt) {
         if (obj.result.wt.vip) {
           obj.result.wt.vip.enabled = true;
-          obj.result.wt.vip.expired_at = 4102329600;
-          obj.result.wt.vip.svip_expired_at = 4102329600;
+          obj.result.wt.vip.expired_at = 4102329600.16;
+          obj.result.wt.vip.svip_expired_at = 4102329600.16;
         }
         obj.result.wt.svip_given = 730;
       }
       obj.result.is_primary = true;
-      obj.result.xy_vip_expire = 4102329600;
-      obj.result.svip_expired_at = 4102329600;
+      obj.result.xy_vip_expire = 4102329600.16;
+      obj.result.svip_expired_at = 4102329600.16;
       obj.result.vip_type = "s";
     }
   }
