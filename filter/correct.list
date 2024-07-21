@@ -5,6 +5,9 @@ HOST-SUFFIX,mypikpak.com,DIRECT
 
 # ========== REJECT 0 ==========
 HOST,access.mypikpak.com,REJECT
+DOMAIN, wxsnsdy.wxs.qq.com, REJECT
+DOMAIN, wxsmsdy.video.qq.com, REJECT
+DOMAIN, wxsnsdythumb.wxs.qq.com, REJECT
 # ========== REJECT 1 ==========
 
 # ========== PROXY 0 ===========
