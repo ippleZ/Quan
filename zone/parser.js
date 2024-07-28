@@ -165,11 +165,9 @@ if (Pflow!=0) {
 //花漾字 pattern
 var pat=[]
 pat[0] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","k","r","s","t","u","v","w","x","y","z"]
-
 // 花式数字
 var patn=[]
 patn[0] = ["0","1","2","3","4","5","6","7","8","9"]
-
 //避免json undefined错误的 函数
 const getValue = (fn, defaultVaule) => {
   try {
@@ -231,6 +229,7 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
   total = ProfileInfo[typeQ]
   $done({content:total})
 }
+
 
 function ParseUnknown(cnt){
   try {
