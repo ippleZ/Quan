@@ -16,6 +16,37 @@ if (url.includes("/boss/car/order/content_info")) {
       delete obj.data["105"][i];
     }
   }
+} else if (url.includes("/c3frontend/af-hotel/page/main")) {
+  // 酒店/民宿 景区门票 火车/飞机
+  if (obj?.data?.modules?.CouponPortalCard) {
+    // 横幅推广
+    delete obj.data.modules.CouponPortalCard;
+  }
+  if (obj?.data?.modules?.CouponWidget) {
+    // 右下角活动悬浮窗
+    delete obj.data.modules.CouponWidget;
+  }
+  if (obj?.data?.modules?.recommended_list) {
+    // 高德建议
+    delete obj.data.modules.recommended_list;
+  }
+  if (obj?.data?.modules?.user_filter_card) {
+    const items = [
+      "banner", // 大横幅
+      "bannerList", // 滚动横幅推广
+      "service_data", // 全网比价 退订便捷 入住保障 资质规则
+      "sug_items_data" // 高德建议
+    ];
+    if (obj?.data?.modules?.user_filter_card?.data) {
+      for (let i of items) {
+        delete obj.data.modules.user_filter_card.data[i];
+      }
+      if (obj?.data?.modules?.user_filter_card?.data?.search_button_data?.rightbgText) {
+        // 查询按钮右上角角标
+        delete obj.data.modules.user_filter_card.data.search_button_data.rightbgText;
+      }
+    }
+  }
 } else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
   // 路线规划页
   if (obj?.data?.children?.length > 0) {
@@ -58,13 +89,13 @@ if (url.includes("/boss/car/order/content_info")) {
   }
 } else if (url.includes("/perception/drive/routePlan")) {
   // 路线规划页
+  const items = [
+    "assistant", // 左上角悬浮动图
+    "global_guide_data",
+    "route_search",
+    "start_button_tips" // 开始导航 悬浮提示 全国车道级
+  ];
   if (obj?.data?.front_end) {
-    const items = [
-      "assistant", // 左上角悬浮动图
-      "global_guide_data",
-      "route_search",
-      "start_button_tips" // 开始导航 悬浮提示 全国车道级
-    ];
     for (let i of items) {
       delete obj.data.front_end[i];
     }
@@ -117,7 +148,7 @@ if (url.includes("/boss/car/order/content_info")) {
   if (obj?.data?.memberInfo) {
     delete obj.data.memberInfo;
   }
-} else if (url.includes("/shield/frogserver/aocs")) {
+} else if (url.includes("/shield/frogserver/aocs/updatable/")) {
   // 整体图层
   const items = [
     // "ARWalkNavi", // AR导航
@@ -151,7 +182,7 @@ if (url.includes("/boss/car/order/content_info")) {
     "hotel_activity",
     "hotel_fillin_opt",
     "hotel_loop",
-    "hotel_portal",
+    // "hotel_portal", // 附近-酒店-页面布局
     "hotel_tipsicon",
     "hotsaleConfig", // 酒店限时抢购
     // "icon_show",
@@ -228,8 +259,8 @@ if (url.includes("/boss/car/order/content_info")) {
   }
 } else if (url.includes("/shield/search/nearbyrec_smart")) {
   // 附近页面
+  const items = ["head", "search_hot_words", "feed_rec"];
   if (obj?.data?.modules?.length > 0) {
-    const items = ["head", "search_hot_words", "feed_rec"];
     if (obj?.data?.modules?.length > 0) {
       obj.data.modules = obj.data.modules.filter((i) => items?.includes(i));
     }
@@ -266,6 +297,7 @@ if (url.includes("/boss/car/order/content_info")) {
     "cpt_service_shop", //买卖二手房
     // "craftsman_entry",
     // "crowd_index", // 人流量情况
+    "dayTripList", // 热门一日游
     // "detailFeedCommodity",
     // "detail_bottom_shop_service",
     "discount_commodity", // 优惠团购
@@ -305,12 +337,16 @@ if (url.includes("/boss/car/order/content_info")) {
     "house_rent_sale_agency",
     // "human_traffic", // 人流量情况 有统计图
     "image_banner",
+    "kaMarketingCampaign", // 附近品牌动态
+    "ka_not_enter", // 移动办卡 套餐服务
+    "legSameIndustryRecEntrance", // 全城最热景点推荐
     "legal_document", // 房源法律信息
     "listBizRec_1",
     "listBizRec_2", // 周边餐饮
     "matrix_banner", // 高德车服
     "merchantSettlement", // 商家店铺管理
     "membership", // 高德菲住卡 会员项目
+    "mini_hook_shelf", // 购票迷你模块
     "movie_info", // 优惠购票 景点宣传片
     "multi_page_anchor", // 二级导航菜单 门票 评论 推荐
     // "navbarMore", // 右上角三点
@@ -392,6 +428,7 @@ if (url.includes("/boss/car/order/content_info")) {
     "upload_bar", // 上传照片
     "verification", // 商家已入驻
     // "video",
+    "waistRecEntrance", // 更多人气好去处
     "waterFallFeed", // 附近景点瀑布流
     "waterFallFeedTitle" // 更多好去处
   ];
